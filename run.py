@@ -12,28 +12,34 @@ def game_board(marks):
     Prints the gameboard to the console
     """
 
-    print('┌─────┬─────┬─────┬─────┬─────┐')
-    print(f"│  {marks['row-1'][0]}  │  {marks['row-1'][1]}  │  {marks['row-1'][2]}  │  {marks['row-1'][3]}  │  {marks['row-1'][4]}  │")
-    print('├─────┼─────┼─────┼─────┼─────┤')
-    print(f"│  {marks['row-2'][0]}  │  {marks['row-2'][1]}  │  {marks['row-2'][2]}  │  {marks['row-2'][3]}  │  {marks['row-2'][4]}  │")
-    print('├─────┼─────┼─────┼─────┼─────┤')
-    print(f"│  {marks['row-3'][0]}  │  {marks['row-3'][1]}  │  {marks['row-3'][2]}  │  {marks['row-3'][3]}  │  {marks['row-3'][4]}  │")
-    print('├─────┼─────┼─────┼─────┼─────┤')
-    print(f"│  {marks['row-4'][0]}  │  {marks['row-4'][1]}  │  {marks['row-4'][2]}  │  {marks['row-4'][3]}  │  {marks['row-4'][4]}  │")
-    print('├─────┼─────┼─────┼─────┼─────┤')
-    print(f"│  {marks['row-5'][0]}  │  {marks['row-5'][1]}  │  {marks['row-5'][2]}  │  {marks['row-5'][3]}  │  {marks['row-5'][4]}  │")
-    print('└─────┴─────┴─────┴─────┴─────┘')
+    print('     │  A  │  B  │  C  │  D  │  E  │')
+    print('─────┼─────┼─────┼─────┼─────┼─────┤')
+    print(f"  1  │  {marks['row-1'][0]}  │  {marks['row-1'][1]}  │  {marks['row-1'][2]}  │  {marks['row-1'][3]}  │  {marks['row-1'][4]}  │")
+    print('─────┼─────┼─────┼─────┼─────┼─────┤')
+    print(f"  2  │  {marks['row-2'][0]}  │  {marks['row-2'][1]}  │  {marks['row-2'][2]}  │  {marks['row-2'][3]}  │  {marks['row-2'][4]}  │")
+    print('─────┼─────┼─────┼─────┼─────┼─────┤')
+    print(f"  3  │  {marks['row-3'][0]}  │  {marks['row-3'][1]}  │  {marks['row-3'][2]}  │  {marks['row-3'][3]}  │  {marks['row-3'][4]}  │")
+    print('─────┼─────┼─────┼─────┼─────┼─────┤')
+    print(f"  4  │  {marks['row-4'][0]}  │  {marks['row-4'][1]}  │  {marks['row-4'][2]}  │  {marks['row-4'][3]}  │  {marks['row-4'][4]}  │")
+    print('─────┼─────┼─────┼─────┼─────┼─────┤')
+    print(f"  5  │  {marks['row-5'][0]}  │  {marks['row-5'][1]}  │  {marks['row-5'][2]}  │  {marks['row-5'][3]}  │  {marks['row-5'][4]}  │")
+    print('─────┴─────┴─────┴─────┴─────┴─────┘')
 
 
-def main_menu():
+def main_menu(page):
     """
     Shows the menu to users, giving them the option to start the game
     or read the game instructions
     """
-    print('Welcome to Tic-Tac-Toe!\n')
-    print('Would you like to start the game or read the game instructions?')
-    menu_options = '1. Start the game\n2. Read game instructions\n'
-    menu_input = input(menu_options)
+    if page == 'main menu':
+        print('Welcome to 5x5 Tic-Tac-Toe!\n')
+        print('Would you like to start the game or read the game instructions?')
+        menu_options = '1. Start the game\n2. Read game instructions\n'
+        menu_input = input(menu_options)
+    elif page == 'game instructions':
+        print('Would you like to start the game or go back to the main menu?')
+        menu_options = '1. Start the game\n2. Back to main menu\n'
+        menu_input = input(menu_options)
 
     while menu_input != '1' and menu_input != '2':
         print(f'\nYou entered {menu_input}, which is not a valid option.\n')
@@ -43,8 +49,33 @@ def main_menu():
     if menu_input == '1':
         print('Start game')
     elif menu_input == '2':
-        print('Load game instructions')
+        if page == 'main menu':
+            game_instructions()
+        elif page == 'game instructions':
+            main_menu('main menu')
 
 
-# main_menu()
-game_board(board_marks)
+def game_instructions():
+    """
+    Shows the game instructions to users, giving them the option to
+    start the game after reading them or go back to the main menu
+    """
+    print('As the name implies, 5x5 Tic-Tac-Toe is a the same as the Tic-Tac-Toe we all know and love,')
+    print('except that it uses a 5x5 grid instead of a 3x3 grid. To win the game, you have to get 4 marks')
+    print('in a row, either horizontally, vertically or diagonally. If no one is able to get 4 marks in a')
+    print('row, then the game is a draw.\n')
+    print('To play the game, you first have to pick a row, then a column. For example, if you are playing')
+    print('with the X marks, picking row 2 and column D would look like this:\n')
+    # Set the board mark on row 2, column D to X
+    board_marks['row-2'][3] = 'X'
+    game_board(board_marks)
+    # Reset the board mark on row 2, column D back to a space
+    board_marks['row-2'][3] = ' '
+    print("\nYou cannot overwrite another players' mark, trying to do so will result in the game asking")
+    print('you to pick a different location instead. Good luck and have fun playing!\n')
+    input('Press any key to clear the screen and continue.\n')
+    main_menu('game instructions')
+
+
+main_menu('main menu')
+# game_board(board_marks)
