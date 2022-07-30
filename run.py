@@ -31,7 +31,43 @@ class Grid():
         print('─────┼─────┼─────┼─────┼─────┼─────┤')
         print(f"  5  │  {self.grid_marks[4][0]}  │  {self.grid_marks[4][1]}  │  {self.grid_marks[4][2]}  │  {self.grid_marks[4][3]}  │  {self.grid_marks[4][4]}  │")
         print('─────┴─────┴─────┴─────┴─────┴─────┘')
+    
 
+    def place_mark(self):
+        row_text = 'Please select a row (1 to 5): '
+        col_text = 'Please select a column (A to E): '
+        row = input(row_text)
+        # Used to see if row variable has a correct value or not
+        row_set = False
+        print('\n')
+        while not row_set:
+            try:
+                row = int(row)
+            except ValueError:
+                print(f'You entered {row}, which is not a number.')
+                row = input(row_text)
+            else:
+                row_set = True
+
+        while 1 < int(row) > 5:
+            print(f'You entered {row}, which is not a valid row.')
+            row = input(row_text)
+
+        col_raw = input(col_text)
+        col = ord(col_raw.lower()) - 96
+        print('\n')
+        while 1 < col > 5:
+            print(f'You entered {col_raw.upper()}, which is not a valid column.')
+            col = ord(input(col_text).lower()) - 96  
+
+        if self.grid_marks[row][col] != ' ':
+            print('A mark is already in place, please select a different location.\n')
+            place_mark()
+        else:
+            if self.player == 0:
+                self.grid_marks[row][col] = 'O'
+            else:
+                self.grid_marks[row][col] = 'X'
 
 
 def menu(page):
@@ -59,7 +95,9 @@ def menu(page):
 
     if menu_input == '1':
         clear_screen()
-        print('Start game')
+        grid.print_grid()
+        grid.place_mark()
+        grid.print_grid()
     elif menu_input == '2':
         if page == 'main menu':
             clear_screen()
@@ -94,6 +132,4 @@ def game_instructions():
 grid = Grid()
 grid_marks = grid.grid_marks
 # print(grid)
-# game_board(grid)
 menu('main menu')
-# game_board(board_marks)
