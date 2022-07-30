@@ -54,6 +54,15 @@ class Grid():
             row = input(row_text)
 
         col_raw = input(col_text)
+        # Used to see if col_raw variable is empty or not
+        col_set = False
+        while not col_set:
+            if len(col_raw) == 0:
+                print('Empty value detected, please try again.')
+                col_raw = input(col_text)
+            else:
+                col_set = True
+                
         # Convert the letter into a number using ord(), then 97 is subtracted to
         # get the correct number as 'a' is equal to 97, 'b' is equal to 98 etc.
         col = ord(col_raw.lower()) - 97
