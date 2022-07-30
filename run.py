@@ -1,3 +1,5 @@
+import os
+
 board_marks = {
     'row-1': [' ', ' ', ' ', ' ', ' '],
     'row-2': [' ', ' ', ' ', ' ', ' '],
@@ -5,6 +7,12 @@ board_marks = {
     'row-4': [' ', ' ', ' ', ' ', ' '],
     'row-5': [' ', ' ', ' ', ' ', ' ']}
 
+
+def clear_screen():
+    """
+    Clear the console based on OS, see credits for more info
+    """
+    os.system('cls||clear')
 
 
 def game_board(marks):
@@ -47,11 +55,14 @@ def main_menu(page):
         menu_input = input(menu_options)
 
     if menu_input == '1':
+        clear_screen()
         print('Start game')
     elif menu_input == '2':
         if page == 'main menu':
+            clear_screen()
             game_instructions()
         elif page == 'game instructions':
+            clear_screen()
             main_menu('main menu')
 
 
@@ -74,6 +85,7 @@ def game_instructions():
     print("\nYou cannot overwrite another players' mark, trying to do so will result in the game asking")
     print('you to pick a different location instead. Good luck and have fun playing!\n')
     input('Press any key to clear the screen and continue.\n')
+    clear_screen()
     main_menu('game instructions')
 
 
