@@ -1,11 +1,5 @@
 import os
-
-board_marks = {
-    'row-1': [' ', ' ', ' ', ' ', ' '],
-    'row-2': [' ', ' ', ' ', ' ', ' '],
-    'row-3': [' ', ' ', ' ', ' ', ' '],
-    'row-4': [' ', ' ', ' ', ' ', ' '],
-    'row-5': [' ', ' ', ' ', ' ', ' ']}
+import random
 
 
 def clear_screen():
@@ -15,23 +9,29 @@ def clear_screen():
     os.system('cls||clear')
 
 
-def game_board(marks):
-    """
-    Prints the gameboard to the console
-    """
+class Grid():
+    def __init__(self):
+        self.grid_marks = [[' ' for columns in range(5)] for rows in range(5)]
+        self.player = random.randint(0, 1)
 
-    print('     │  A  │  B  │  C  │  D  │  E  │')
-    print('─────┼─────┼─────┼─────┼─────┼─────┤')
-    print(f"  1  │  {marks['row-1'][0]}  │  {marks['row-1'][1]}  │  {marks['row-1'][2]}  │  {marks['row-1'][3]}  │  {marks['row-1'][4]}  │")
-    print('─────┼─────┼─────┼─────┼─────┼─────┤')
-    print(f"  2  │  {marks['row-2'][0]}  │  {marks['row-2'][1]}  │  {marks['row-2'][2]}  │  {marks['row-2'][3]}  │  {marks['row-2'][4]}  │")
-    print('─────┼─────┼─────┼─────┼─────┼─────┤')
-    print(f"  3  │  {marks['row-3'][0]}  │  {marks['row-3'][1]}  │  {marks['row-3'][2]}  │  {marks['row-3'][3]}  │  {marks['row-3'][4]}  │")
-    print('─────┼─────┼─────┼─────┼─────┼─────┤')
-    print(f"  4  │  {marks['row-4'][0]}  │  {marks['row-4'][1]}  │  {marks['row-4'][2]}  │  {marks['row-4'][3]}  │  {marks['row-4'][4]}  │")
-    print('─────┼─────┼─────┼─────┼─────┼─────┤')
-    print(f"  5  │  {marks['row-5'][0]}  │  {marks['row-5'][1]}  │  {marks['row-5'][2]}  │  {marks['row-5'][3]}  │  {marks['row-5'][4]}  │")
-    print('─────┴─────┴─────┴─────┴─────┴─────┘')
+    def print_grid(self):
+        """
+        Prints the gameboard to the console
+        """
+
+        print('     │  A  │  B  │  C  │  D  │  E  │')
+        print('─────┼─────┼─────┼─────┼─────┼─────┤')
+        print(f"  1  │  {self.grid_marks[0][0]}  │  {self.grid_marks[0][1]}  │  {self.grid_marks[0][2]}  │  {self.grid_marks[0][3]}  │  {self.grid_marks[0][4]}  │")
+        print('─────┼─────┼─────┼─────┼─────┼─────┤')
+        print(f"  2  │  {self.grid_marks[1][0]}  │  {self.grid_marks[1][1]}  │  {self.grid_marks[1][2]}  │  {self.grid_marks[1][3]}  │  {self.grid_marks[1][4]}  │")
+        print('─────┼─────┼─────┼─────┼─────┼─────┤')
+        print(f"  3  │  {self.grid_marks[2][0]}  │  {self.grid_marks[2][1]}  │  {self.grid_marks[2][2]}  │  {self.grid_marks[2][3]}  │  {self.grid_marks[2][4]}  │")
+        print('─────┼─────┼─────┼─────┼─────┼─────┤')
+        print(f"  4  │  {self.grid_marks[3][0]}  │  {self.grid_marks[3][1]}  │  {self.grid_marks[3][2]}  │  {self.grid_marks[3][3]}  │  {self.grid_marks[3][4]}  │")
+        print('─────┼─────┼─────┼─────┼─────┼─────┤')
+        print(f"  5  │  {self.grid_marks[4][0]}  │  {self.grid_marks[4][1]}  │  {self.grid_marks[4][2]}  │  {self.grid_marks[4][3]}  │  {self.grid_marks[4][4]}  │")
+        print('─────┴─────┴─────┴─────┴─────┴─────┘')
+
 
 
 def menu(page):
@@ -80,10 +80,10 @@ def game_instructions():
     print('To play the game, you first have to pick a row, then a column. For example, if you are playing')
     print('with the X marks, picking row 2 and column D would look like this:\n')
     # Set the board mark on row 2, column D to X
-    board_marks['row-2'][3] = 'X'
-    game_board(board_marks)
+    grid_marks[1][3] = 'X'
+    grid.print_grid()
     # Reset the board mark on row 2, column D back to a space
-    board_marks['row-2'][3] = ' '
+    grid_marks[1][3] = ' '
     print("\nYou cannot overwrite another players' mark, trying to do so will result in the game asking")
     print('you to pick a different location instead. Good luck and have fun playing!\n')
     input('Press any key to clear the screen and continue.\n')
@@ -91,5 +91,9 @@ def game_instructions():
     menu('game instructions')
 
 
-main_menu('main menu')
+grid = Grid()
+grid_marks = grid.grid_marks
+# print(grid)
+# game_board(grid)
+menu('main menu')
 # game_board(board_marks)
