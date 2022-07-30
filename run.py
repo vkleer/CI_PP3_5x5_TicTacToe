@@ -39,7 +39,6 @@ class Grid():
         row = input(row_text)
         # Used to see if row variable has a correct value or not
         row_set = False
-        print('\n')
         while not row_set:
             try:
                 row = int(row)
@@ -48,17 +47,21 @@ class Grid():
                 row = input(row_text)
             else:
                 row_set = True
+                row -= 1
 
-        while 1 < int(row) > 5:
+        while 0 < int(row) > 4:
             print(f'You entered {row}, which is not a valid row.')
             row = input(row_text)
 
         col_raw = input(col_text)
-        col = ord(col_raw.lower()) - 96
-        print('\n')
-        while 1 < col > 5:
+        # Convert the letter into a number using ord(), then 97 is subtracted to
+        # get the correct number as 'a' is equal to 97, 'b' is equal to 98 etc.
+        col = ord(col_raw.lower()) - 97
+        print(col)
+        while col < 0 or col > 4:
             print(f'You entered {col_raw.upper()}, which is not a valid column.')
-            col = ord(input(col_text).lower()) - 96  
+            col_raw = input(col_text)
+            col = ord(col_raw.lower()) - 97 
 
         if self.grid_marks[row][col] != ' ':
             print('A mark is already in place, please select a different location.\n')
