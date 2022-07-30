@@ -34,10 +34,13 @@ def game_board(marks):
     print('─────┴─────┴─────┴─────┴─────┴─────┘')
 
 
-def main_menu(page):
+def menu(page):
     """
-    Shows the menu to users, giving them the option to start the game
-    or read the game instructions
+    Shows a menu that changes depending on what parameter 'page' is set to.
+    When set to 'main menu', allow users to start the game or read the game 
+    instructions. When set to 'game instructions', allow users to start the
+    game or call this function again, setting parameter 'page' to 'main menu'.
+    :param page: string
     """
     if page == 'main menu':
         print('Welcome to 5x5 Tic-Tac-Toe!\n')
@@ -63,13 +66,12 @@ def main_menu(page):
             game_instructions()
         elif page == 'game instructions':
             clear_screen()
-            main_menu('main menu')
+            menu('main menu')
 
 
 def game_instructions():
     """
-    Shows the game instructions to users, giving them the option to
-    start the game after reading them or go back to the main menu
+    Shows the game instructions, then call menu function
     """
     print('As the name implies, 5x5 Tic-Tac-Toe is a the same as the Tic-Tac-Toe we all know and love,')
     print('except that it uses a 5x5 grid instead of a 3x3 grid. To win the game, you have to get 4 marks')
@@ -86,7 +88,7 @@ def game_instructions():
     print('you to pick a different location instead. Good luck and have fun playing!\n')
     input('Press any key to clear the screen and continue.\n')
     clear_screen()
-    main_menu('game instructions')
+    menu('game instructions')
 
 
 main_menu('main menu')
