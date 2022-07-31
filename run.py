@@ -33,6 +33,17 @@ class Grid():
         print('─────┴─────┴─────┴─────┴─────┴─────┘')
     
 
+    def change_player(self) -> int:
+        """
+        Changes the player from 0 to 1 or vice versa
+        """
+        # Variable is set to 1 minus the self.player value. This means that if
+        # the self.player value is equal to 0, nothing will be subtracted, turning
+        # the self.player value into 1. If the self.player value is equal to 1, 
+        # Then 1 will be subtracted from 1, turning the self.player value into 0.
+        self.player = 1 - self.player
+
+
     def place_mark(self):
         row_text = 'Please select a row (1 to 5): '
         col_text = 'Please select a column (A to E): '
@@ -75,10 +86,14 @@ class Grid():
             print('A mark is already in place, please select a different location.\n')
             self.place_mark()
         else:
+            # If the self.player value is equal to 0, place an 'O' mark. Else, place
+            # an 'X' mark
             if self.player == 0:
                 self.grid_marks[row][col] = 'O'
+                self.change_player()
             else:
                 self.grid_marks[row][col] = 'X'
+                self.change_player()
 
 
 def menu(page) -> str:
