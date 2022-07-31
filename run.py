@@ -44,6 +44,33 @@ class Grid():
         self.player = 1 - self.player
 
 
+    def check_game_status(self):
+        """
+        Checks whether the game should still run or stop.
+        """
+        def full_grid():
+            """
+            Checks to see if grid is full
+            """
+            total_marks = 0
+            marks_used = 0
+            test = 1
+            for list in self.grid_marks:
+                for item in list:
+                    total_marks += 1
+                    if item != ' ':
+                        marks_used += 1
+            print(f'Total marks used: {marks_used}')
+            if marks_used == total_marks:
+                print('Grid is full!')
+                return True
+            else:
+                print('Grid not full')
+                return False
+
+        full_grid()
+
+
     def place_mark(self):
         row_text = 'Please select a row (1 to 5): '
         col_text = 'Please select a column (A to E): '
@@ -124,12 +151,14 @@ def menu(page) -> str:
         # Create the game grid using Grid class to access its attributes and methods
         grid = Grid()
         grid_marks = grid.grid_marks
+        print(grid.check_game_status())
 
         # Keep running the game until game_over is equal to True
         game_over = False
         while not game_over:
             grid.print_grid()
             grid.place_mark()
+            grid.check_game_status()
     elif menu_input == '2':
         if page == 'main menu':
             clear_screen()
