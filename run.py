@@ -66,7 +66,6 @@ class Grid():
         # Convert the letter into a number using ord(), then 97 is subtracted to
         # get the correct number as 'a' is equal to 97, 'b' is equal to 98 etc.
         col = ord(col_raw.lower()) - 97
-        print(col)
         while col < 0 or col > 4:
             print(f'You entered {col_raw.upper()}, which is not a valid column.')
             col_raw = input(col_text)
@@ -74,7 +73,7 @@ class Grid():
 
         if self.grid_marks[row][col] != ' ':
             print('A mark is already in place, please select a different location.\n')
-            place_mark()
+            self.place_mark()
         else:
             if self.player == 0:
                 self.grid_marks[row][col] = 'O'
@@ -82,7 +81,7 @@ class Grid():
                 self.grid_marks[row][col] = 'X'
 
 
-def menu(page):
+def menu(page) -> str:
     """
     Shows a menu that changes depending on what parameter 'page' is set to.
     When set to 'main menu', allow users to start the game or read the game 
@@ -107,9 +106,15 @@ def menu(page):
 
     if menu_input == '1':
         clear_screen()
-        grid.print_grid()
-        grid.place_mark()
-        grid.print_grid()
+        # Create the game grid using Grid class to access its attributes and methods
+        grid = Grid()
+        grid_marks = grid.grid_marks
+
+        # Keep running the game until game_over is equal to True
+        game_over = False
+        while not game_over:
+            grid.print_grid()
+            grid.place_mark()
     elif menu_input == '2':
         if page == 'main menu':
             clear_screen()
@@ -141,7 +146,10 @@ def game_instructions():
     menu('game instructions')
 
 
-grid = Grid()
-grid_marks = grid.grid_marks
-# print(grid)
-menu('main menu')
+def main():
+    """
+    Runs the retuired functions to start the program
+    """
+    menu('main menu')
+
+main()
