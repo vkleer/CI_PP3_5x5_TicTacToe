@@ -50,11 +50,10 @@ class Grid():
         """
         def full_grid():
             """
-            Checks to see if grid is full
+            Checks if grid is full
             """
             total_marks = 0
             marks_used = 0
-            test = 1
             for list in self.grid_marks:
                 for item in list:
                     total_marks += 1
@@ -63,12 +62,45 @@ class Grid():
             print(f'Total marks used: {marks_used}')
             if marks_used == total_marks:
                 print('Grid is full!')
-                return True
+                return 'Game is a tie!'
             else:
                 print('Grid not full')
                 return False
 
-        full_grid()
+
+        def check_for_win():
+            """
+            Checks if a player has 4 horizontal, vertical or diagonal marks
+            """
+            result = self.grid_marks
+
+            def check_rows():
+                # Check the 1st row
+                if result[0][0] and result[0][0] == result[0][1] == result[0][2] == result[0][3] != ' ' or \
+                result[0][1] == result[0][2] == result[0][3] == result[0][4] != ' ':
+                    print('1st row win!')
+                # Check the 2nd row
+                elif result[1][0] == result[1][1] == result[1][2] == result[1][3] != ' ' or \
+                result[1][1] == result[1][2] == result[1][3] == result[1][4] != ' ':
+                    print('2nd row win!')
+                # Check the 3rd row
+                elif result[2][0] and result[2][0] == result[2][1] == result[2][2] == result[2][3] != ' ' or \
+                result[2][1] == result[2][2] == result[2][3] == result[2][4] != ' ':
+                    print('3rd row win!')
+                # Check the 4th row
+                elif result[3][0] == result[3][1] == result[3][2] == result[3][3] != ' ' or \
+                result[3][1] == result[3][2] == result[3][3] == result[3][4] != ' ':
+                    print('4th row win!')
+                # Check the 5th row
+                elif result[4][0] == result[4][1] == result[4][2] == result[4][3] != ' ' or \
+                result[4][1] == result[4][2] == result[4][3] == result[4][4] != ' ':
+                    print('5th row win!')
+                print(result)
+            
+            check_rows()
+        
+        
+        check_for_win()
 
 
     def place_mark(self):
