@@ -65,7 +65,6 @@ class Grid():
                 return 'Game is a tie!'
             else:
                 print('Grid not full')
-                return False
 
 
         def check_for_win():
@@ -105,33 +104,12 @@ class Grid():
                     result_flip[0][1] == result_flip[1][2] == result_flip[2][3] == result_flip[3][4] != ' ' or \
                     result_flip[1][0] == result_flip[2][1] == result_flip[3][2] == result_flip[4][3] != ' ':
                     print('other diagonal win!')
-                
-                # Check the 1st row
-                # if result[0][0] == result[0][1] == result[0][2] == result[0][3] != ' ' or \
-                # result[0][1] == result[0][2] == result[0][3] == result[0][4] != ' ':
-                #     print('1st row win!')
-                # # Check the 2nd row
-                # elif result[1][0] == result[1][1] == result[1][2] == result[1][3] != ' ' or \
-                # result[1][1] == result[1][2] == result[1][3] == result[1][4] != ' ':
-                #     print('2nd row win!')
-                # # Check the 3rd row
-                # elif result[2][0] == result[2][1] == result[2][2] == result[2][3] != ' ' or \
-                # result[2][1] == result[2][2] == result[2][3] == result[2][4] != ' ':
-                #     print('3rd row win!')
-                # # Check the 4th row
-                # elif result[3][0] == result[3][1] == result[3][2] == result[3][3] != ' ' or \
-                # result[3][1] == result[3][2] == result[3][3] == result[3][4] != ' ':
-                #     print('4th row win!')
-                # # Check the 5th row
-                # elif result[4][0] == result[4][1] == result[4][2] == result[4][3] != ' ' or \
-                # result[4][1] == result[4][2] == result[4][3] == result[4][4] != ' ':
-                #     print('5th row win!')
-                print(result)
-                print(result_flip)
             
-            check_diagonals()
-            check_columns()
+
             check_rows()
+            check_columns()
+            check_diagonals()
+            full_grid()
         
 
         check_for_win()
@@ -217,7 +195,6 @@ def menu(page) -> str:
         # Create the game grid using Grid class to access its attributes and methods
         grid = Grid()
         grid_marks = grid.grid_marks
-        print(grid.check_game_status())
 
         # Keep running the game until game_over is equal to True
         game_over = False
@@ -225,6 +202,7 @@ def menu(page) -> str:
             grid.print_grid()
             grid.place_mark()
             grid.check_game_status()
+        print('Game over! The winner is:')
     elif menu_input == '2':
         if page == 'main menu':
             clear_screen()
