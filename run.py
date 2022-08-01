@@ -52,6 +52,7 @@ class Grid():
         or diagonal marks to win the game or if the grid is full and the game is a tie
         """
         result = self.grid_marks
+        # Rotates the list of lists result by 90 degrees, see credits for more info
         result_flip = list(zip(*reversed(result)))
 
 
@@ -94,15 +95,19 @@ class Grid():
 
         def check_diagonals() -> bool:
             """
-            Checks all possible diagonals in the grid to see if 4 consecutive marks have been 
-            placed in a diagonal. If so, call the player_won function and if not, return False
+            Checks all possible diagonals in the grid to see if 4 consecutive 
+            marks have been placed in a diagonal. If so, call the player_won 
+            function and if not, return False
             """
-            # Check the diagonals from 1A to 5E and 5A to 1E
+            # Check the diagonals from row 1, column A to row 5, column E and 
+            # row 5 column A to row 1, column E
             for i in range(2):
                 if result[i][i] == result[i + 1][i + 1] == result[i + 2][i + 2] == result[i + 3][i + 3] != ' ' or \
                 result_flip[i][i] == result_flip[i + 1][i + 1] == result_flip[i + 2][i + 2] == result_flip[i + 3][i + 3] != ' ':
                     return player_won()
-            # Check the diagonals from 2A to 5E, 1B to 4E, 1D to 4A and 2E to 5A
+            # Check the diagonals from row 2, column A to row 5, column E, row 1,
+            # column B to row 4, column E, row 1, column D to row 4, column A and 
+            # row 2, column E to row 5, column A
             if result[0][1] == result[1][2] == result[2][3] == result[3][4] != ' ' or \
             result[1][0] == result[2][1] == result[3][2] == result[4][3] != ' ' or \
             result_flip[0][1] == result_flip[1][2] == result_flip[2][3] == result_flip[3][4] != ' ' or \
@@ -113,8 +118,8 @@ class Grid():
 
         def full_grid() -> bool:
             """
-            If the grid is full, print out a message to announce the game is a tie and returns 
-            True
+            If the grid is full, print out a message to announce the game is a tie
+            and returns True
             """
             total_marks = 0
             marks_used = 0
@@ -122,7 +127,8 @@ class Grid():
             for row in self.grid_marks:
                 for mark in row:
                     total_marks += 1
-                    # If mark has been placed on the grid, increase marks_used by 1
+                    # If mark has been placed on the grid, increase marks_used 
+                    # by 1
                     if mark != ' ':
                         marks_used += 1
 
@@ -133,15 +139,16 @@ class Grid():
         # If a player has won the game, return True
         if check_rows() or check_columns() or check_diagonals() or full_grid():
             return True
-        # If the game is not a tie and no player has won the game yet, return False and keep 
-        # the game running
+        # If the game is not a tie and no player has won the game yet, return 
+        # False and keep the game running
         return False
 
 
     def place_mark(self):
         """
         Places an 'X' or 'O' mark on the grid, depending on who's turn it is.
-        Validates user input to avoid overriding another players' mark or entering invalid rows/columns.
+        Validates user input to avoid overriding another players' mark or 
+        entering invalid rows/columns.
         """
         row_text = f'Turn: Player {self.player + 1}\nPlease select a row (1 to 5): '
         col_text = 'Please select a column (A to E): '
@@ -219,7 +226,8 @@ def menu(page) -> str:
 
     if menu_input == '1':
         clear_screen()
-        # Create the game grid using Grid class to access its attributes and methods
+        # Create the game grid using Grid class to access its attributes and 
+        # methods
         grid = Grid()
         grid_marks = grid.grid_marks
         grid.print_grid()
@@ -227,7 +235,8 @@ def menu(page) -> str:
         # Keep running the game until game_over is equal to True
         game_over = False
         while not game_over:
-            # If the check_for_win method returns true, break out of while loop
+            # If the check_for_win method returns true, break out of while 
+            # loop to stop the game
             game_over = grid.check_for_win()
             if game_over:
                 break
