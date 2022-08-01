@@ -73,6 +73,7 @@ class Grid():
             Checks if a player has 4 horizontal, vertical or diagonal marks
             """
             result = self.grid_marks
+            result_flip = list(zip(*reversed(result)))
 
             def check_rows():
                 for row in result:
@@ -83,14 +84,28 @@ class Grid():
                         else:
                             print('Player 2 wins through 4 in a row!')
             
+
             def check_columns():
-                for col in zip(*reversed(result)):
+                for col in result_flip:
                     if col[0] == col[1] == col[2] == col[3] != ' ' or \
                     col[1] == col[2] == col[3] == col[4] != ' ':
                         if self.player == 0:
                             print('Player 1 wins through 4 in a column!')
                         else:
                             print('Player 2 wins through 4 in a column!')
+
+
+            def check_diagonals():
+                for i in range(2):
+                    if result[i][i] == result[i + 1][i + 1] == result[i + 2][i + 2] == result[i + 3][i + 3] != ' ' or \
+                        result_flip[i][i] == result_flip[i + 1][i + 1] == result_flip[i + 2][i + 2] == result_flip[i + 3][i + 3] != ' ':
+                        print('diagonal win!')
+                if result[0][1] == result[1][2] == result[2][3] == result[3][4] != ' ' or \
+                    result[1][0] == result[2][1] == result[3][2] == result[4][3] != ' ' or \
+                    result_flip[0][1] == result_flip[1][2] == result_flip[2][3] == result_flip[3][4] != ' ' or \
+                    result_flip[1][0] == result_flip[2][1] == result_flip[3][2] == result_flip[4][3] != ' ':
+                    print('other diagonal win!')
+                
                 # Check the 1st row
                 # if result[0][0] == result[0][1] == result[0][2] == result[0][3] != ' ' or \
                 # result[0][1] == result[0][2] == result[0][3] == result[0][4] != ' ':
@@ -112,7 +127,9 @@ class Grid():
                 # result[4][1] == result[4][2] == result[4][3] == result[4][4] != ' ':
                 #     print('5th row win!')
                 print(result)
+                print(result_flip)
             
+            check_diagonals()
             check_columns()
             check_rows()
         
