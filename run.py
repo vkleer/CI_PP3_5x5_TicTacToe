@@ -75,31 +75,48 @@ class Grid():
             result = self.grid_marks
 
             def check_rows():
+                for row in result:
+                    if row[0] == row[1] == row[2] == row[3] != ' ' or \
+                    row[1] == row[2] == row[3] == row[4] != ' ':
+                        if self.player == 0:
+                            print('Player 1 wins through 4 in a row!')
+                        else:
+                            print('Player 2 wins through 4 in a row!')
+            
+            def check_columns():
+                for col in zip(*reversed(result)):
+                    if col[0] == col[1] == col[2] == col[3] != ' ' or \
+                    col[1] == col[2] == col[3] == col[4] != ' ':
+                        if self.player == 0:
+                            print('Player 1 wins through 4 in a column!')
+                        else:
+                            print('Player 2 wins through 4 in a column!')
                 # Check the 1st row
-                if result[0][0] and result[0][0] == result[0][1] == result[0][2] == result[0][3] != ' ' or \
-                result[0][1] == result[0][2] == result[0][3] == result[0][4] != ' ':
-                    print('1st row win!')
-                # Check the 2nd row
-                elif result[1][0] == result[1][1] == result[1][2] == result[1][3] != ' ' or \
-                result[1][1] == result[1][2] == result[1][3] == result[1][4] != ' ':
-                    print('2nd row win!')
-                # Check the 3rd row
-                elif result[2][0] and result[2][0] == result[2][1] == result[2][2] == result[2][3] != ' ' or \
-                result[2][1] == result[2][2] == result[2][3] == result[2][4] != ' ':
-                    print('3rd row win!')
-                # Check the 4th row
-                elif result[3][0] == result[3][1] == result[3][2] == result[3][3] != ' ' or \
-                result[3][1] == result[3][2] == result[3][3] == result[3][4] != ' ':
-                    print('4th row win!')
-                # Check the 5th row
-                elif result[4][0] == result[4][1] == result[4][2] == result[4][3] != ' ' or \
-                result[4][1] == result[4][2] == result[4][3] == result[4][4] != ' ':
-                    print('5th row win!')
+                # if result[0][0] == result[0][1] == result[0][2] == result[0][3] != ' ' or \
+                # result[0][1] == result[0][2] == result[0][3] == result[0][4] != ' ':
+                #     print('1st row win!')
+                # # Check the 2nd row
+                # elif result[1][0] == result[1][1] == result[1][2] == result[1][3] != ' ' or \
+                # result[1][1] == result[1][2] == result[1][3] == result[1][4] != ' ':
+                #     print('2nd row win!')
+                # # Check the 3rd row
+                # elif result[2][0] == result[2][1] == result[2][2] == result[2][3] != ' ' or \
+                # result[2][1] == result[2][2] == result[2][3] == result[2][4] != ' ':
+                #     print('3rd row win!')
+                # # Check the 4th row
+                # elif result[3][0] == result[3][1] == result[3][2] == result[3][3] != ' ' or \
+                # result[3][1] == result[3][2] == result[3][3] == result[3][4] != ' ':
+                #     print('4th row win!')
+                # # Check the 5th row
+                # elif result[4][0] == result[4][1] == result[4][2] == result[4][3] != ' ' or \
+                # result[4][1] == result[4][2] == result[4][3] == result[4][4] != ' ':
+                #     print('5th row win!')
                 print(result)
             
+            check_columns()
             check_rows()
         
-        
+
         check_for_win()
 
 
