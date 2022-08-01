@@ -11,12 +11,14 @@ def clear_screen():
 
 class Grid():
     def __init__(self):
+        # Create a list of lists containing all possible mark locations on the grid
         self.grid_marks = [[' ' for columns in range(5)] for rows in range(5)]
+        # Pick a random player to start the game
         self.player = random.randint(0, 1)
 
     def print_grid(self):
         """
-        Prints the gameboard to the console
+        Prints the grid to the console
         """
 
         print('     │  A  │  B  │  C  │  D  │  E  │')
@@ -35,7 +37,7 @@ class Grid():
 
     def change_player(self) -> int:
         """
-        Changes the player from 0 to 1 or vice versa
+        Changes the self.player value from 0 to 1 or vice versa
         """
         # Variable is set to 1 minus the self.player value. This means that if
         # the self.player value is equal to 0, nothing will be subtracted, turning
@@ -46,24 +48,31 @@ class Grid():
 
     def check_for_win(self):
         """
-        Checks if a player has 4 horizontal, vertical or diagonal marks
+        Contains 4 functions that check if any player has 4 consecutive horizontal, vertical 
+        or diagonal marks to win the game or if the grid is full and the game is a tie
         """
         result = self.grid_marks
         result_flip = list(zip(*reversed(result)))
 
 
-        def player_won():
-            # 
-            if self.player == 1:
+        def player_won() -> bool:
+            """
+            Checks the self.player value and prints out which player has won, returning True 
+            in either case
+            """
+            if self.player == 0:
                 print('Player 1 wins!')
                 return True
             else:
                 print('Player 2 wins!')
                 return True
-            return False
 
 
-        def check_rows():
+        def check_rows() -> bool:
+            """
+            Checks all rows to see if 4 consecutive marks have been placed in a row. If so,
+            call the player_won function and if not, return False
+            """
             for row in result:
                 if row[0] == row[1] == row[2] == row[3] != ' ' or \
                 row[1] == row[2] == row[3] == row[4] != ' ':
@@ -71,7 +80,11 @@ class Grid():
             return False
         
 
-        def check_columns():
+        def check_columns() -> bool:
+            """
+            Checks all columns to see if 4 consecutive marks have been placed in a column. 
+            If so, call the player_won function and if not, return False
+            """
             for col in result_flip:
                 if col[0] == col[1] == col[2] == col[3] != ' ' or \
                 col[1] == col[2] == col[3] == col[4] != ' ':
@@ -79,12 +92,17 @@ class Grid():
             return False
 
 
-        def check_diagonals():
+        def check_diagonals() -> bool:
+            """
+            Checks all possible diagonals in the grid to see if 4 consecutive marks have been 
+            placed in a diagonal. If so, call the player_won function and if not, return False
+            """
+            # Check the diagonals from 1A to 5E and 5A to 1E
             for i in range(2):
                 if result[i][i] == result[i + 1][i + 1] == result[i + 2][i + 2] == result[i + 3][i + 3] != ' ' or \
                 result_flip[i][i] == result_flip[i + 1][i + 1] == result_flip[i + 2][i + 2] == result_flip[i + 3][i + 3] != ' ':
                     return player_won()
-
+            # Check the diagonals from 2A to 5E, 1B to 4E, 1D to 4A and 2E to 5A
             if result[0][1] == result[1][2] == result[2][3] == result[3][4] != ' ' or \
             result[1][0] == result[2][1] == result[3][2] == result[4][3] != ' ' or \
             result_flip[0][1] == result_flip[1][2] == result_flip[2][3] == result_flip[3][4] != ' ' or \
@@ -93,33 +111,42 @@ class Grid():
             return False
 
 
-        def full_grid():
+        def full_grid() -> bool:
             """
-            Checks if grid is full
+            If the grid is full, print out a message to announce the game is a tie and returns 
+            True
             """
             total_marks = 0
             marks_used = 0
-            for list in self.grid_marks:
-                for item in list:
+            # Check how many items there are in each row
+            for row in self.grid_marks:
+                for mark in row:
                     total_marks += 1
-                    if item != ' ':
+                    # If mark has been placed on the grid, increase marks_used by 1
+                    if mark != ' ':
                         marks_used += 1
+
             if marks_used == total_marks:
                 print("Grid is full, but no one won. It's a tie!")
                 return True
-            
 
+        # If a player has won the game, return True
         if check_rows() or check_columns() or check_diagonals() or full_grid():
             return True
-    
+        # If the game is not a tie and no player has won the game yet, return False and keep 
+        # the game running
         return False
 
 
     def place_mark(self):
-        row_text = 'Please select a row (1 to 5): '
+        """
+        Places an 'X' or 'O' mark on the grid, depending on who's turn it is.
+        Validates user input to avoid overriding another players' mark or entering invalid rows/columns.
+        """
+        row_text = f'Turn: Player {self.player + 1}\nPlease select a row (1 to 5): '
         col_text = 'Please select a column (A to E): '
         row = input(row_text)
-        # Used to see if row variable has a correct value or not
+        # Check if row variable has a correct value or not
         row_set = False
         while not row_set:
             try:
@@ -240,7 +267,7 @@ def game_instructions():
 
 def main():
     """
-    Runs the retuired functions to start the program
+    Runs the required functions to start the program
     """
     menu('main menu')
 
