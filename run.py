@@ -262,6 +262,10 @@ def game_instructions():
     print('row, then the game is a draw.\n')
     print('To play the game, you first have to pick a row, then a column. For example, if you are playing')
     print('with the X marks, picking row 2 and column D would look like this:\n')
+    # Create a game grid using Grid class to access its attributes and 
+    # methods, used to show how the game works
+    grid = Grid()
+    grid_marks = grid.grid_marks
     # Set the board mark on row 2, column D to X
     grid_marks[1][3] = 'X'
     grid.print_grid()
@@ -270,6 +274,7 @@ def game_instructions():
     print("\nYou cannot overwrite another players' mark, trying to do so will result in the game asking")
     print('you to pick a different location instead. Good luck and have fun playing!\n')
     input('Press any key to clear the screen and continue.\n')
+    del grid
     clear_screen()
     menu('game instructions')
 
