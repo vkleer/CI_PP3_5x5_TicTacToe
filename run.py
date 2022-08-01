@@ -51,16 +51,23 @@ class Grid():
         result = self.grid_marks
         result_flip = list(zip(*reversed(result)))
 
+
+        def player_won():
+            # 
+            if self.player == 1:
+                print('Player 1 wins!')
+                return True
+            else:
+                print('Player 2 wins!')
+                return True
+            return False
+
+
         def check_rows():
             for row in result:
                 if row[0] == row[1] == row[2] == row[3] != ' ' or \
                 row[1] == row[2] == row[3] == row[4] != ' ':
-                    if self.player == 0:
-                        print('Player 1 wins through 4 in a row!')
-                        return True
-                    else:
-                        print('Player 2 wins through 4 in a row!')
-                        return True
+                    return player_won()   
             return False
         
 
@@ -68,27 +75,21 @@ class Grid():
             for col in result_flip:
                 if col[0] == col[1] == col[2] == col[3] != ' ' or \
                 col[1] == col[2] == col[3] == col[4] != ' ':
-                    if self.player == 0:
-                        print('Player 1 wins through 4 in a column!')
-                        return True
-                    else:
-                        print('Player 2 wins through 4 in a column!')
-                        return True
+                    return player_won()
             return False
 
 
         def check_diagonals():
             for i in range(2):
                 if result[i][i] == result[i + 1][i + 1] == result[i + 2][i + 2] == result[i + 3][i + 3] != ' ' or \
-                    result_flip[i][i] == result_flip[i + 1][i + 1] == result_flip[i + 2][i + 2] == result_flip[i + 3][i + 3] != ' ':
-                    print('diagonal win!')
-                    return True
+                result_flip[i][i] == result_flip[i + 1][i + 1] == result_flip[i + 2][i + 2] == result_flip[i + 3][i + 3] != ' ':
+                    return player_won()
+
             if result[0][1] == result[1][2] == result[2][3] == result[3][4] != ' ' or \
-                result[1][0] == result[2][1] == result[3][2] == result[4][3] != ' ' or \
-                result_flip[0][1] == result_flip[1][2] == result_flip[2][3] == result_flip[3][4] != ' ' or \
-                result_flip[1][0] == result_flip[2][1] == result_flip[3][2] == result_flip[4][3] != ' ':
-                print('other diagonal win!')
-                return True
+            result[1][0] == result[2][1] == result[3][2] == result[4][3] != ' ' or \
+            result_flip[0][1] == result_flip[1][2] == result_flip[2][3] == result_flip[3][4] != ' ' or \
+            result_flip[1][0] == result_flip[2][1] == result_flip[3][2] == result_flip[4][3] != ' ':
+                return player_won()
             return False
 
 
@@ -103,9 +104,8 @@ class Grid():
                     total_marks += 1
                     if item != ' ':
                         marks_used += 1
-            print(f'Total marks used: {marks_used}')
             if marks_used == total_marks:
-                print('Grid is full!')
+                print("Grid is full, but no one won. It's a tie!")
                 return True
             
 
@@ -200,9 +200,13 @@ def menu(page) -> str:
         # Keep running the game until game_over is equal to True
         game_over = False
         while not game_over:
-            grid.place_mark()
-            grid.print_grid()
+            # If the check_for_win method returns true, break out of while loop
             game_over = grid.check_for_win()
+            if game_over:
+                break
+            grid.place_mark()
+            clear_screen()
+            grid.print_grid()
     elif menu_input == '2':
         if page == 'main menu':
             clear_screen()
