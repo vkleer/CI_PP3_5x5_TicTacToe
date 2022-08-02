@@ -122,28 +122,36 @@ def validate_player_email(email):
 
 
 def log_in():
-    player_1_name = ''
-    player_2_name = ''
-    player_1_email = ''
-    player_2_email = ''
+    global player_1_name
+    global player_1_email
+    global player_1_wins
+    global player_2_name
+    global player_2_email
+    global player_2_wins
+
     login_complete = False
     while not login_complete:
         clear_screen()
         for i in range(2):
-            print(f'Welcome back! Player {i}, please enter your email address'
-                  'to log in to the game.')
+            print(f'Welcome back! Player {i + 1}, please enter your email address'
+                  ' to log in to the game.')
 
             get_email = False
             while not get_email:
                 player_email = input('Please enter your email address: ')
 
                 if validate_player_email(player_email):
-                    if registered_email(player_email):
-                        if player_1_email != player_email:
+                    if registered_value(player_email):
+                        if i == 0:
+                            player_1_email = player_email
                             get_email = True
-                        else:
-                            print(f'Cannot be the same email as Player 1'
-                                  f'{player_1_name}.')
+                        elif i == 1:
+                            if player_1_email != player_email:
+                                player_2_email = player_email
+                                get_email = True
+                            else:
+                                print(f'Cannot be the same email as Player 1'
+                                    f'{player_1_name}.')
                     else:
                         print('Email not registered.')
 
@@ -151,7 +159,9 @@ def log_in():
                 player_1_name = (
                     WORKSHEET.row_values(WORKSHEET.find(player_email).row)[0]
                 )
-                player_1_email = player_email
+                player_1_wins = (
+                    WORKSHEET.row_values(WORKSHEET.find(player_email).row)[2]
+                )
                 print(f'Welcome back, {player_1_name.capitalize()}!')
             elif i == 1:
                 player_2_name = (
@@ -162,15 +172,15 @@ def log_in():
                 login_complete = True
 
 
-def registered_email(email):
+def registered_value(value):
     """
-    Check if the email address is registered by looking
-    in WORKSHEET to find a match
-    @param email: string
+    Check if the value is registered by looking in WORKSHEET to find a match
+    @param value: string
     """
+    name_list = WORKSHEET.col_values(1)
     email_list = WORKSHEET.col_values(2)
 
-    if email in email_list:
+    if value in name_list or value in email_list:
         return True
     else:
         return False
