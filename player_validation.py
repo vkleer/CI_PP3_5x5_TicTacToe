@@ -178,8 +178,13 @@ def log_in():
         for i in range(2):
             clear_screen()
             game_logo()
-            print(f'Player {i + 1}, please enter your email address '
-                  'to log in to the game.')
+            if i == 0:
+                print(f'Player {i + 1}, please enter your email address '
+                      'to log in to the game.')
+            else:
+                print(f'Welcome back, {player_1_username}!\n')
+                print(f'Player {i + 1}, please enter your email address '
+                      'to log in to the game.')
 
             get_email = False
             while not get_email:
@@ -224,7 +229,6 @@ def log_in():
                 player_1_wins = (
                     WORKSHEET.row_values(WORKSHEET.find(player_email).row)[2]
                 )
-                print(f'Welcome back, {player_1_username}!\n')
             elif i == 1:
                 player_2_username = (
                     WORKSHEET.row_values(WORKSHEET.find(player_email).row)[0]
@@ -232,9 +236,13 @@ def log_in():
                 player_2_wins = (
                     WORKSHEET.row_values(WORKSHEET.find(player_email).row)[2]
                 )
-                print(f'Welcome back, {player_2_username}!')
                 player_2_email = player_email
                 login_complete = True
+
+    clear_screen()
+    game_logo()
+    print(f'Welcome back, {player_2_username}!\n')
+    input('You are now both logged in - press any key to continue to the game.\n')
 
 
 def registered_value(value):
