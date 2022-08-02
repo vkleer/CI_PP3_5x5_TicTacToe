@@ -20,8 +20,11 @@ WORKSHEET = SHEET.worksheet('player_data')
 
 def register_players():
     """
-    Gets name and email address from user input, which is added to the
-    player 1 and player 2 worksheets
+    Gets name and email address from user input, which are added to
+    the worksheet, defined in the WORKSHEET constant variable, under
+    column A (player_username) and B (player_email) respectively.
+    The integer 0 is always added on registration too, under
+    column C (total_wins).
     """
     player_data = [[], []]
 
@@ -30,13 +33,15 @@ def register_players():
         clear_screen()
         for i in range(2):
             if i == 1:
-                print('Would player 2 like to register too, or do you already'
+                print('Would player 2 like to register too, or do you already '
                       'have an account?')
                 new_account = input('1. Register new account\n2. Already have '
                                     'an account, go to login\n')
                 if new_account == '1':
                     print('Alright.')
                 elif new_account == '2':
+                    registration_complete = True
+                    log_in()
                     break
                 else:
                     print(f'You entered {new_account}, please enter either 1 '
@@ -46,23 +51,27 @@ def register_players():
 
             name_set = False
             while not name_set:
-                player_username = input('Please enter your preferred username: ').capitalize()
+                player_username = input('Please enter your preferred '
+                                        'username: ').capitalize()
 
                 if validate_player_username(player_username):
                     if not registered_value(player_username):
-                        print(f'You entered: {player_username}. Is that correct? All usernames'
-                              ' are automatically capitalized.')
-                        confirm_name = input('1. Confirm\n2. Cancel\n')
-                        if confirm_name == '1':
+                        print(f'You entered: {player_username}. Is that '
+                              'correct? All usernames are automatically '
+                              'capitalized.')
+                        confirm_username = input('1. Confirm\n2. Cancel\n')
+                        if confirm_username == '1':
                             name_set = True
-                            print(f'Great! Nice to meet you, {player_username}.')
-                        elif confirm_name == '2':
+                            print(f'Great! Nice to meet you, '
+                                  f'{player_username}.')
+                        elif confirm_username == '2':
                             name_set = False
                         else:
-                            print(f'You entered {confirm_username}, please enter '
-                                'either 1 to confirm or 2 to cancel: ')
+                            print(f'You entered {confirm_username}, please '
+                                  'enter either 1 to confirm or 2 to cancel: ')
                     else:
-                        print(f'The username {player_username} is already in use. Please try a different one.')
+                        print(f'The username {player_username} is already in '
+                              'use. Please try a different one.')
                 else:
                     print('Sorry, please try again')
 
@@ -70,7 +79,8 @@ def register_players():
             # to use this specific email address to register
             email_set = False
             while not email_set:
-                player_email = input('Please enter your email address: ').lower()
+                player_email = input('Please enter your email '
+                                     'address: ').lower()
 
                 if validate_player_email(player_email):
                     if not registered_value(player_email):
@@ -82,19 +92,18 @@ def register_players():
                             email_set = False
                         else:
                             print(f'You entered {confirm_input}, please enter '
-                                'either 1 to confirm or 2 to cancel: ')
+                                  'either 1 to confirm or 2 to cancel: ')
                     else:
-                        print(f'The email address {player_email} is already in use. Please try a different one.')
+                        print(f'The email address {player_email} is already '
+                              'in use. Please try a different one.')
                 else:
                     print('')
 
             print(f'Registration complete, thanks {player_username}.')
             player_data[i] = [player_username, player_email, 0]
+            WORKSHEET.append_row(player_data[i])
             print(player_data)
         registration_complete = True
-    # Append both lists in player_data variable to WORKSHEET
-    WORKSHEET.append_row(player_data[0])
-    WORKSHEET.append_row(player_data[1])
 
 
 def validate_player_username(username):
@@ -129,6 +138,14 @@ def validate_player_email(email):
 
 
 def log_in():
+    """
+    Allows existing players to log in to the game with their email address,
+    which is checked by looking in the worksheet, defined in the WORKSHEET
+    constant variable.
+    If a player accidentally landed here or wants to create a new account,
+    instead of log in, they can do so as well.
+    Multiple global variables are set to make the game interactive.
+    """
     global player_1_username
     global player_1_email
     global player_1_wins
@@ -140,8 +157,8 @@ def log_in():
     while not login_complete:
         clear_screen()
         for i in range(2):
-            print(f'Welcome back! Player {i + 1}, please enter your email address'
-                  ' to log in to the game.')
+            print(f'Welcome back! Player {i + 1}, please enter your email '
+                  'address to log in to the game.')
 
             get_email = False
             while not get_email:
@@ -158,9 +175,20 @@ def log_in():
                                 get_email = True
                             else:
                                 print(f'Cannot be the same email as Player 1'
-                                      f' {player_1_name}.')
+                                      f' {player_1_username}.')
                     else:
-                        print('Email not registered.')
+                        print('Email not registered, do you want to try '
+                              'different email address or register a '
+                              'new account?')
+                        try_again = input('1. Try different email address\n'
+                                          '2. Register new account\n')
+                        if try_again == '1':
+                            print('Ok.')
+                        elif try_again == '2':
+                            register_players()
+                        else:
+                            print(f'You entered {try_again}, please enter '
+                                  'either 1 to confirm or 2 to cancel: ')
 
             if i == 0:
                 player_1_username = (
@@ -174,6 +202,9 @@ def log_in():
                 player_2_username = (
                     WORKSHEET.row_values(WORKSHEET.find(player_email).row)[0]
                 )
+                player_2_wins = (
+                    WORKSHEET.row_values(WORKSHEET.find(player_email).row)[2]
+                )
                 print(f'Welcome back, {player_2_username}!')
                 player_2_email = player_email
                 login_complete = True
@@ -181,7 +212,8 @@ def log_in():
 
 def registered_value(value):
     """
-    Check if the value is registered by looking in WORKSHEET to find a match
+    Check if the value is registered by looking in the worksheet, defined in
+    the WORKSHEET constant variable, to find a match
     @param value: string
     """
     username_list = WORKSHEET.col_values(1)
@@ -191,7 +223,3 @@ def registered_value(value):
         return True
     else:
         return False
-
-
-# log_in()
-register_players()
