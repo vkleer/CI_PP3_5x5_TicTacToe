@@ -1,5 +1,6 @@
 import os
 import random
+import player_validation as play_val
 
 
 def clear_screen():
@@ -196,8 +197,17 @@ class Grid():
         Validates user input to avoid overriding another players' mark or
         entering invalid rows/columns.
         """
-        row_text = f'Turn: Player {self.player + 1}\n'
-        'Please select a row (1 to 5): '
+        if self.player == 1:
+            row_text = (
+                f'Turn: {self.player + 1}\nPlease select a row '
+                '(1 to 5): '
+            )
+        else:
+            row_text = (
+                f'Turn: {self.player + 1}\nPlease select a row '
+                '(1 to 5): '
+            )
+        
         col_text = 'Please select a column (A to E): '
         row = input(row_text)
         # Check if row variable has a correct value or not
