@@ -22,14 +22,41 @@ def player_registration():
     Gets name and email address from user input, which is added to the
     player 1 and player 2 worksheets
     """
-    player_data = [[],[]]
+    player_data = [[], []]
 
     registration_complete = False
     while not registration_complete:
         for i in range(2):
+            if i == 1:
+                print('Would player 2 like to register too, or do you already have an account?')
+                new_account = input('1. Register new account\n2. Already have an account, go to login\n')
+                if new_account == '1':
+                    print('Alright.')
+                elif new_account == '2':
+                    break
+                else:
+                    print(f'You entered {new_account}, please enter either 1 to'
+                        'confirm or 2 to cancel: ')
+
             print(f"Let's start the registration proces for player {i + 1}.")
-            player_name = input('Please enter your name: ')
-            print(f'Great! Nice to meet you, {player_name}.')
+
+            name_set = False
+            while not name_set:
+                player_name = input('Please enter your name: ')
+
+                if validate_player_name(player_name):
+                    print(f'You entered: {player_name}. Is that correct?')
+                    confirm_name = input('1. Confirm\n2. Cancel\n')
+                    if confirm_name == '1':
+                        name_set = True
+                        print(f'Great! Nice to meet you, {player_name}.')
+                    elif confirm_name == '2':
+                        name_set = False
+                    else:
+                        print(f'You entered {confirm_name}, please enter either 1 to'
+                            'confirm or 2 to cancel: ')
+                else:
+                    print('Sorry, please try again')
 
             # Check if player added a valid email address and if the user wants
             # to use this specific email address to register
@@ -37,22 +64,18 @@ def player_registration():
             while not email_set:
                 player_email = input('Please enter your email address: ')
 
-                email_validation = False
-                while not email_validation:
-                    print('Email address is invalid, please try again.')
-                    player_email = input('Please enter your email address: ')
-                    email_validation = validate_player_email(player_email)
-                    print(email_validation)
-                    
-                print(f'You entered: {player_email}. Is that correct?')
-                confirm_input = input('1. Confirm\n2. Cancel\n')
-                if confirm_input == '1':
-                    email_set = True
-                elif confirm_input == '2':
-                    email_set = False
+                if validate_player_email(player_email):
+                    print(f'You entered: {player_email}. Is that correct?')
+                    confirm_input = input('1. Confirm\n2. Cancel\n')
+                    if confirm_input == '1':
+                        email_set = True
+                    elif confirm_input == '2':
+                        email_set = False
+                    else:
+                        print(f'You entered {confirm_input}, please enter either 1 to'
+                            'confirm or 2 to cancel: ')
                 else:
-                    print(f'You entered {confirm_input}, please enter either 1 to'
-                        'confirm or 2 to cancel: ')
+                    print('')                  
 
             print(f'Registration complete, thanks {player_name}.')
             player_data[i] = [player_name, player_email, 0, 0]
@@ -61,6 +84,23 @@ def player_registration():
     # Append both lists in player_data variable to WORKSHEET
     WORKSHEET.append_row(player_data[0])
     WORKSHEET.append_row(player_data[1])
+
+
+def validate_player_name(name):
+    """
+    Checks if player name meets the set criteria.
+    Should be between 2 to 20 characters long, using letters only.
+    @param name: string
+    """
+    try:
+        if len(name) <= 2 or len(name) > 20:
+            print('Name must be between 2 to 20 characters long.')
+        elif not name.isalpha():
+            print('Name can only contain letters.')
+        else:
+            return True
+    except TypeError:
+        return False
 
 
 def validate_player_email(email):

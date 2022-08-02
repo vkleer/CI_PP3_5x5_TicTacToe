@@ -257,7 +257,7 @@ def menu(page) -> str:
     When set to 'main menu', allow users to start the game or read the game
     instructions. When set to 'game instructions', allow users to start the
     game or call this function again, setting parameter 'page' to 'main menu'.
-    :param page: string
+    @param page: string
     """
     clear_screen()
     if page == 'main menu':
