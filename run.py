@@ -270,7 +270,12 @@ def menu(page) -> str:
     @param page: string
     """
     clear_screen()
-    if page == 'main menu':
+    if page == 'log in':
+        game_logo()
+        print('Welcome! Would you like to log in or create a new account?')
+        menu_options = '1. Log in\n2. Create new account\n'
+        menu_input = input(menu_options)
+    elif page == 'main menu':
         game_logo()
         print('Would you like to start the game or read the game '
               'instructions?')
@@ -287,23 +292,28 @@ def menu(page) -> str:
         menu_input = input(menu_options)
 
     if menu_input == '1':
-        clear_screen()
-        # Create the game grid using Grid class to access its attributes and
-        # methods
-        grid = Grid()
-        grid.print_grid()
-
-        # Keep running the game until game_over is equal to True
-        game_over = False
-        while not game_over:
-            # If the check_for_win method returns true, break out of while
-            # loop to stop the game
-            game_over = grid.check_for_win()
-            if game_over:
-                break
-            grid.place_mark()
+        if page != 'log in':
             clear_screen()
+            # Create the game grid using Grid class to access its attributes
+            # and methods
+            grid = Grid()
             grid.print_grid()
+
+            # Keep running the game until game_over is equal to True
+            game_over = False
+            while not game_over:
+                # If the check_for_win method returns true, break out of while
+                # loop to stop the game
+                game_over = grid.check_for_win()
+                if game_over:
+                    break
+                grid.place_mark()
+                clear_screen()
+                grid.print_grid()
+        else:
+            clear_screen()
+            play_val.log_in()
+            menu('main menu')
     elif menu_input == '2':
         if page == 'main menu':
             clear_screen()
@@ -312,6 +322,10 @@ def menu(page) -> str:
         elif page == 'game instructions':
             clear_screen()
             game_logo()
+            menu('main menu')
+        elif page == 'log in':
+            clear_screen()
+            play_val.register_players()
             menu('main menu')
 
 
@@ -353,7 +367,7 @@ def main():
     """
     Runs the required functions to start the program
     """
-    menu('main menu')
+    menu('log in')
 
 
 if __name__ == "__main__":
