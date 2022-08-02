@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from email_validator import validate_email, EmailNotValidError
+from run import clear_screen
 
 # Constant variables SCOPE, CREDS, SCOPED_CREDS and GSPREAD_CLIENT taken from
 # the love_sandwiches project walkthrough project by Code Institute
@@ -17,7 +18,7 @@ SHEET = GSPREAD_CLIENT.open('tictactoe_player_data')
 WORKSHEET = SHEET.worksheet('player_data')
 
 
-def player_registration():
+def register_players():
     """
     Gets name and email address from user input, which is added to the
     player 1 and player 2 worksheets
@@ -26,17 +27,20 @@ def player_registration():
 
     registration_complete = False
     while not registration_complete:
+        clear_screen()
         for i in range(2):
             if i == 1:
-                print('Would player 2 like to register too, or do you already have an account?')
-                new_account = input('1. Register new account\n2. Already have an account, go to login\n')
+                print('Would player 2 like to register too, or do you already' 
+                      'have an account?')
+                new_account = input('1. Register new account\n2. Already have '
+                                    'an account, go to login\n')
                 if new_account == '1':
                     print('Alright.')
                 elif new_account == '2':
                     break
                 else:
-                    print(f'You entered {new_account}, please enter either 1 to'
-                        'confirm or 2 to cancel: ')
+                    print(f'You entered {new_account}, please enter either 1 '
+                          'to confirm or 2 to cancel: ')
 
             print(f"Let's start the registration proces for player {i + 1}.")
 
@@ -53,8 +57,8 @@ def player_registration():
                     elif confirm_name == '2':
                         name_set = False
                     else:
-                        print(f'You entered {confirm_name}, please enter either 1 to'
-                            'confirm or 2 to cancel: ')
+                        print(f'You entered {confirm_name}, please enter '
+                        'either 1 to confirm or 2 to cancel: ')
                 else:
                     print('Sorry, please try again')
 
@@ -72,8 +76,8 @@ def player_registration():
                     elif confirm_input == '2':
                         email_set = False
                     else:
-                        print(f'You entered {confirm_input}, please enter either 1 to'
-                            'confirm or 2 to cancel: ')
+                        print(f'You entered {confirm_input}, please enter '
+                        'either 1 to confirm or 2 to cancel: ')
                 else:
                     print('')                  
 
@@ -116,5 +120,19 @@ def validate_player_email(email):
     except EmailNotValidError as e:
         print(str(e))
 
+                    
+def registered_email(email):
+    """
+    Check if the email address is registered by looking
+    in WORKSHEET to find a match
+    @param email: string
+    """
+    email_list = WORKSHEET.col_values(2)
+    
+    if email in email_list:
+        return True
+    else:
+        return False
 
-player_registration()
+
+log_in()
