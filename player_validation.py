@@ -120,6 +120,43 @@ def validate_player_email(email):
     except EmailNotValidError as e:
         print(str(e))
 
+
+def log_in():
+    player_1_name = ''
+    player_2_name = ''
+    player_1_email = ''
+    player_2_email = ''
+    login_complete = False
+    while not login_complete:
+        clear_screen()
+        for i in range(2):
+            print(f'Welcome back! Player {i}, please enter your email address' 
+                   'to log in to the game.')
+
+            get_email = False
+            while not get_email:
+                player_email = input('Please enter your email address: ')
+
+                if validate_player_email(player_email):
+                    if registered_email(player_email):
+                        if player_1_email != player_email:
+                            get_email = True    
+                        else:
+                            print(f'Cannot be the same email as Player 1' 
+                                  f'{player_1_name}.')
+                    else:
+                        print('Email not registered.')
+
+            if i == 0:
+                player_1_name = WORKSHEET.row_values(WORKSHEET.find(player_email).row)[0]
+                player_1_email = player_email
+                print(f'Welcome back, {player_1_name.capitalize()}!')
+            elif i == 1:
+                player_2_name = WORKSHEET.row_values(WORKSHEET.find(player_email).row)[0]
+                print(f'Welcome back, {player_2_name.capitalize()}!')
+                player_2_email = player_email
+                login_complete = True
+
                     
 def registered_email(email):
     """
