@@ -96,14 +96,14 @@ def register_players():
 def validate_player_username(username):
     """
     Checks if player username meets the set criteria.
-    Should be between 2 to 20 characters long, using letters only.
+    Should be between 2 to 20 characters long, using letters and digits only.
     @param name: string
     """
     try:
         if len(username) <= 2 or len(username) > 20:
             print('Name must be between 2 to 20 characters long.')
-        elif not username.isalpha():
-            print('Name can only contain letters.')
+        elif not username.isalnum():
+            print('Name can only contain letters or digits.')
         else:
             return True
     except TypeError:
