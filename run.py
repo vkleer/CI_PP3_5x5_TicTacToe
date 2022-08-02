@@ -346,4 +346,5 @@ def main():
     menu('main menu')
 
 
-main()
+if __name__ == "__main__":
+    main()
