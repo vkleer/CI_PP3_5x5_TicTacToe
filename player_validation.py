@@ -46,19 +46,22 @@ def register_players():
 
             name_set = False
             while not name_set:
-                player_name = input('Please enter your name: ')
+                player_username = input('Please enter your preferred username: ')
 
-                if validate_player_name(player_name):
-                    print(f'You entered: {player_name}. Is that correct?')
-                    confirm_name = input('1. Confirm\n2. Cancel\n')
-                    if confirm_name == '1':
-                        name_set = True
-                        print(f'Great! Nice to meet you, {player_name}.')
-                    elif confirm_name == '2':
-                        name_set = False
+                if validate_player_username(player_username):
+                    if not registered_value(player_username):
+                        print(f'You entered: {player_username}. Is that correct?')
+                        confirm_name = input('1. Confirm\n2. Cancel\n')
+                        if confirm_name == '1':
+                            name_set = True
+                            print(f'Great! Nice to meet you, {player_username}.')
+                        elif confirm_name == '2':
+                            name_set = False
+                        else:
+                            print(f'You entered {confirm_username}, please enter '
+                                'either 1 to confirm or 2 to cancel: ')
                     else:
-                        print(f'You entered {confirm_name}, please enter '
-                              'either 1 to confirm or 2 to cancel: ')
+                        print(f'Username {player_username} is already in use. Please try a different username.')
                 else:
                     print('Sorry, please try again')
 
@@ -81,8 +84,8 @@ def register_players():
                 else:
                     print('')
 
-            print(f'Registration complete, thanks {player_name}.')
-            player_data[i] = [player_name, player_email, 0, 0]
+            print(f'Registration complete, thanks {player_username}.')
+            player_data[i] = [player_username, player_email, 0]
             print(player_data)
         registration_complete = True
     # Append both lists in player_data variable to WORKSHEET
@@ -90,16 +93,16 @@ def register_players():
     WORKSHEET.append_row(player_data[1])
 
 
-def validate_player_name(name):
+def validate_player_username(username):
     """
-    Checks if player name meets the set criteria.
+    Checks if player username meets the set criteria.
     Should be between 2 to 20 characters long, using letters only.
     @param name: string
     """
     try:
-        if len(name) <= 2 or len(name) > 20:
+        if len(username) <= 2 or len(username) > 20:
             print('Name must be between 2 to 20 characters long.')
-        elif not name.isalpha():
+        elif not username.isalpha():
             print('Name can only contain letters.')
         else:
             return True
@@ -122,10 +125,10 @@ def validate_player_email(email):
 
 
 def log_in():
-    global player_1_name
+    global player_1_username
     global player_1_email
     global player_1_wins
-    global player_2_name
+    global player_2_username
     global player_2_email
     global player_2_wins
 
@@ -151,23 +154,23 @@ def log_in():
                                 get_email = True
                             else:
                                 print(f'Cannot be the same email as Player 1'
-                                    f'{player_1_name}.')
+                                      f' {player_1_name}.')
                     else:
                         print('Email not registered.')
 
             if i == 0:
-                player_1_name = (
+                player_1_username = (
                     WORKSHEET.row_values(WORKSHEET.find(player_email).row)[0]
                 )
                 player_1_wins = (
                     WORKSHEET.row_values(WORKSHEET.find(player_email).row)[2]
                 )
-                print(f'Welcome back, {player_1_name.capitalize()}!')
+                print(f'Welcome back, {player_1_username}!')
             elif i == 1:
-                player_2_name = (
+                player_2_username = (
                     WORKSHEET.row_values(WORKSHEET.find(player_email).row)[0]
                 )
-                print(f'Welcome back, {player_2_name.capitalize()}!')
+                print(f'Welcome back, {player_2_username}!')
                 player_2_email = player_email
                 login_complete = True
 
@@ -177,13 +180,14 @@ def registered_value(value):
     Check if the value is registered by looking in WORKSHEET to find a match
     @param value: string
     """
-    name_list = WORKSHEET.col_values(1)
+    username_list = WORKSHEET.col_values(1)
     email_list = WORKSHEET.col_values(2)
 
-    if value in name_list or value in email_list:
+    if value in username_list or value in email_list:
         return True
     else:
         return False
 
 
-log_in()
+# log_in()
+register_players()
