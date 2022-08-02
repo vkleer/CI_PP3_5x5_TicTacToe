@@ -61,7 +61,7 @@ def register_players():
                             print(f'You entered {confirm_username}, please enter '
                                 'either 1 to confirm or 2 to cancel: ')
                     else:
-                        print(f'Username {player_username} is already in use. Please try a different username.')
+                        print(f'The username {player_username} is already in use. Please try a different one.')
                 else:
                     print('Sorry, please try again')
 
@@ -72,15 +72,18 @@ def register_players():
                 player_email = input('Please enter your email address: ')
 
                 if validate_player_email(player_email):
-                    print(f'You entered: {player_email}. Is that correct?')
-                    confirm_input = input('1. Confirm\n2. Cancel\n')
-                    if confirm_input == '1':
-                        email_set = True
-                    elif confirm_input == '2':
-                        email_set = False
+                    if not registered_value(player_email):
+                        print(f'You entered: {player_email}. Is that correct?')
+                        confirm_input = input('1. Confirm\n2. Cancel\n')
+                        if confirm_input == '1':
+                            email_set = True
+                        elif confirm_input == '2':
+                            email_set = False
+                        else:
+                            print(f'You entered {confirm_input}, please enter '
+                                'either 1 to confirm or 2 to cancel: ')
                     else:
-                        print(f'You entered {confirm_input}, please enter '
-                              'either 1 to confirm or 2 to cancel: ')
+                        print(f'The email address {player_email} is already in use. Please try a different one.')
                 else:
                     print('')
 
