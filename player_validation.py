@@ -30,7 +30,7 @@ def register_players():
         clear_screen()
         for i in range(2):
             if i == 1:
-                print('Would player 2 like to register too, or do you already' 
+                print('Would player 2 like to register too, or do you already'
                       'have an account?')
                 new_account = input('1. Register new account\n2. Already have '
                                     'an account, go to login\n')
@@ -58,7 +58,7 @@ def register_players():
                         name_set = False
                     else:
                         print(f'You entered {confirm_name}, please enter '
-                        'either 1 to confirm or 2 to cancel: ')
+                              'either 1 to confirm or 2 to cancel: ')
                 else:
                     print('Sorry, please try again')
 
@@ -77,9 +77,9 @@ def register_players():
                         email_set = False
                     else:
                         print(f'You entered {confirm_input}, please enter '
-                        'either 1 to confirm or 2 to cancel: ')
+                              'either 1 to confirm or 2 to cancel: ')
                 else:
-                    print('')                  
+                    print('')
 
             print(f'Registration complete, thanks {player_name}.')
             player_data[i] = [player_name, player_email, 0, 0]
@@ -130,8 +130,8 @@ def log_in():
     while not login_complete:
         clear_screen()
         for i in range(2):
-            print(f'Welcome back! Player {i}, please enter your email address' 
-                   'to log in to the game.')
+            print(f'Welcome back! Player {i}, please enter your email address'
+                  'to log in to the game.')
 
             get_email = False
             while not get_email:
@@ -140,24 +140,28 @@ def log_in():
                 if validate_player_email(player_email):
                     if registered_email(player_email):
                         if player_1_email != player_email:
-                            get_email = True    
+                            get_email = True
                         else:
-                            print(f'Cannot be the same email as Player 1' 
+                            print(f'Cannot be the same email as Player 1'
                                   f'{player_1_name}.')
                     else:
                         print('Email not registered.')
 
             if i == 0:
-                player_1_name = WORKSHEET.row_values(WORKSHEET.find(player_email).row)[0]
+                player_1_name = (
+                    WORKSHEET.row_values(WORKSHEET.find(player_email).row)[0]
+                )
                 player_1_email = player_email
                 print(f'Welcome back, {player_1_name.capitalize()}!')
             elif i == 1:
-                player_2_name = WORKSHEET.row_values(WORKSHEET.find(player_email).row)[0]
+                player_2_name = (
+                    WORKSHEET.row_values(WORKSHEET.find(player_email).row)[0]
+                )
                 print(f'Welcome back, {player_2_name.capitalize()}!')
                 player_2_email = player_email
                 login_complete = True
 
-                    
+
 def registered_email(email):
     """
     Check if the email address is registered by looking
@@ -165,7 +169,7 @@ def registered_email(email):
     @param email: string
     """
     email_list = WORKSHEET.col_values(2)
-    
+
     if email in email_list:
         return True
     else:
