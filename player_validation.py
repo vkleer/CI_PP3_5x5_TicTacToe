@@ -46,11 +46,12 @@ def register_players():
 
             name_set = False
             while not name_set:
-                player_username = input('Please enter your preferred username: ')
+                player_username = input('Please enter your preferred username: ').capitalize()
 
                 if validate_player_username(player_username):
                     if not registered_value(player_username):
-                        print(f'You entered: {player_username}. Is that correct?')
+                        print(f'You entered: {player_username}. Is that correct? All usernames'
+                              ' are automatically capitalized.')
                         confirm_name = input('1. Confirm\n2. Cancel\n')
                         if confirm_name == '1':
                             name_set = True
@@ -69,7 +70,7 @@ def register_players():
             # to use this specific email address to register
             email_set = False
             while not email_set:
-                player_email = input('Please enter your email address: ')
+                player_email = input('Please enter your email address: ').lower()
 
                 if validate_player_email(player_email):
                     if not registered_value(player_email):
