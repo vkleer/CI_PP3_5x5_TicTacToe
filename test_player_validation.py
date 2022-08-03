@@ -57,5 +57,20 @@ class TestPlayerRegistration(unittest.TestCase):
         self.assertEqual(play_val.register_players(), None)
 
 
+class TestPlayerLogIn(unittest.TestCase):
+    """
+    Tests the log_in function from player_validation.
+    Verifies both valid and invalid registration input.
+    """
+    @patch('builtins.input')
+    def test_login_players(self, mocked_input):
+        mocked_input.side_effect = (
+            ['testname@test.com', 'testname2@test.com', '1']
+        )
+        self.assertEqual(play_val.log_in(), None)
+        play_val.delete_test_data('Testname')
+        play_val.delete_test_data('Testname2')
+
+
 if __name__ == '__main__':
     unittest.main()
