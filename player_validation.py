@@ -265,12 +265,14 @@ def update_score(player):
     constant variable, to the player who won the game.
     """
     if player == player_1_username:
-        player_1_wins += 1
+        global player_1_wins
+        player_1_wins = int(player_1_wins) + 1
         WORKSHEET.update_cell(
-            WORKSHEET.find(player_1_username).row, 2, + player_1_wins
+            WORKSHEET.find(player_1_username).row, 3, + player_1_wins
             )
     elif player == player_2_username:
-        player_2_wins += 1
+        global player_2_wins
+        player_2_wins = int(player_2_wins) + 1
         WORKSHEET.update_cell(
-            WORKSHEET.find(player_2_username).row, 2, + player_2_wins
+            WORKSHEET.find(player_2_username).row, 3, + player_2_wins
         )
