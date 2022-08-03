@@ -43,7 +43,6 @@ def register_players():
                     game_logo()
                 elif new_account == '2':
                     registration_complete = True
-                    log_in()
                     return
                 else:
                     print(f'You entered {new_account}, please enter either 1 '
