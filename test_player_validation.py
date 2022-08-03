@@ -42,10 +42,10 @@ import player_validation as play_val
 #         )
 
 
-class TestPlayerRegistrationAndLogin(unittest.TestCase):
+class TestPlayerRegistration(unittest.TestCase):
     """
-    Tests the log in and registration functions from player_validation.
-    Verifies both valid and invalid registration and log in input.
+    Tests the register_players function from player_validation.
+    Verifies both valid and invalid registration input.
 
     """
     @patch('builtins.input')
@@ -55,8 +55,6 @@ class TestPlayerRegistrationAndLogin(unittest.TestCase):
              'testname2@test.com', '1', '1']
         )
         self.assertEqual(play_val.register_players(), None)
-        play_val.delete_test_data('Testname')
-        play_val.delete_test_data('Testname2')
 
 
 if __name__ == '__main__':
