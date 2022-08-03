@@ -360,7 +360,7 @@ def menu(page) -> str:
         elif page == 'log in':
             clear_screen()
             play_val.register_players()
-            menu('main menu')
+            menu('log in')
         elif page == 'play again':
             clear_screen()
             game_logo()
