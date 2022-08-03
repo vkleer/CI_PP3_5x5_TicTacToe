@@ -414,5 +414,5 @@ def main():
     menu('log in')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
