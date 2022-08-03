@@ -292,3 +292,11 @@ def update_score(player):
         WORKSHEET.update_cell(
             WORKSHEET.find(player_2_username).row, 3, + player_2_wins
         )
+
+
+def delete_test_data(test_username):
+    username_row = WORKSHEET.find(test_username).row
+
+    WORKSHEET.update(f'A{username_row}', '')
+    WORKSHEET.update(f'B{username_row}', '')
+    WORKSHEET.update(f'C{username_row}', '')
