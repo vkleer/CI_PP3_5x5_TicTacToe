@@ -49,7 +49,7 @@ class TestPlayerRegistrationAndLogin(unittest.TestCase):
 
     """
     @patch('builtins.input')
-    def test_input(self, mocked_input):
+    def test_register_players(self, mocked_input):
         mocked_input.side_effect = (
             ['Testname', '1', 'testname@test.com', '1', '1', 'Testname2', '1', 
              'testname2@test.com', '1', '1']
