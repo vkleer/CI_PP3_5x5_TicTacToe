@@ -51,8 +51,8 @@ def register_players():
 
             print(f"Let's start the registration proces for player {i + 1}.")
 
-            name_set = False
-            while not name_set:
+            username_set = False
+            while not username_set:
                 player_username = input('Please enter your preferred '
                                         'username: ').capitalize()
 
@@ -60,23 +60,29 @@ def register_players():
                     if not registered_value(player_username):
                         clear_screen()
                         game_logo()
-                        print(f'You entered: {player_username}. Is that '
-                              'correct? All usernames are automatically '
-                              'capitalized.')
-                        confirm_username = input('1. Confirm\n2. Cancel\n')
-                        if confirm_username == '1':
-                            clear_screen()
-                            game_logo()
-                            name_set = True
-                            print(f'Great! Nice to meet you, '
-                                  f'{player_username}.')
-                        elif confirm_username == '2':
-                            name_set = False
-                        else:
-                            clear_screen()
-                            game_logo()
-                            print(f'You entered {player_username}, please '
-                                  'enter either 1 to confirm or 2 to cancel: ')
+
+                        confirm_input_bool = False
+                        while not confirm_input_bool:
+                            print(f'You entered: {player_username}. Is that '
+                                'correct? All usernames are automatically '
+                                'capitalized.')
+                            confirm_username = input('1. Confirm\n2. Cancel\n')
+
+                            if confirm_username == '1':
+                                clear_screen()
+                                game_logo()
+                                confirm_input_bool = True
+                                username_set = True
+                                print(f'Great! Nice to meet you, '
+                                    f'{player_username}.')
+                            elif confirm_username == '2':
+                                confirm_input_bool = True
+                                username_set = False
+                            else:
+                                clear_screen()
+                                game_logo()
+                                print('Please enter either 1 to confirm or 2 '
+                                      'to cancel.')
                     else:
                         clear_screen()
                         game_logo()
@@ -98,17 +104,21 @@ def register_players():
                     if not registered_value(player_email):
                         clear_screen()
                         game_logo()
-                        print(f'You entered: {player_email}. Is that correct?')
-                        confirm_input = input('1. Confirm\n2. Cancel\n')
-                        if confirm_input == '1':
-                            email_set = True
-                        elif confirm_input == '2':
-                            email_set = False
-                        else:
-                            clear_screen()
-                            game_logo()
-                            print(f'You entered {confirm_input}, please enter '
-                                  'either 1 to confirm or 2 to cancel: ')
+
+                        confirm_input_bool = False
+                        while not confirm_input_bool:
+                            print(f'You entered: {player_email}. Is that correct?')
+                            confirm_input = input('1. Confirm\n2. Cancel\n')
+                            if confirm_input == '1':
+                                confirm_input_bool = True
+                                email_set = True
+                            elif confirm_input == '2':
+                                confirm_input_bool = True
+                                email_set = False
+                            else:
+                                clear_screen()
+                                game_logo()
+                                print('Please enter either 1 to confirm or 2 to cancel.')
                     else:
                         clear_screen()
                         game_logo()
