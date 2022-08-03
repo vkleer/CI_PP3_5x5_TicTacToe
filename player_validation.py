@@ -177,7 +177,8 @@ def log_in():
     constant variable.
     If a player accidentally landed here or wants to create a new account,
     instead of log in, they can do so as well.
-    Multiple global variables are set to make the game interactive.
+    Multiple global variables are set to provide feedback to the players
+    while and after playing.
     """
     global player_1_username
     global player_1_email
