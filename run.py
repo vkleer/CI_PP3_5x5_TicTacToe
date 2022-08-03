@@ -100,11 +100,13 @@ class Grid():
                 print(f'{play_val.player_1_username} wins!')
                 play_val.update_score(play_val.player_1_username)
                 print(f'You now have a total of {play_val.player_1_wins} wins.')
+                input('Press any key to continue.')
                 return True
             else:
                 print(f'{play_val.player_2_username} wins!')
                 play_val.update_score(play_val.player_2_username)
                 print(f'You now have a total of {play_val.player_2_wins} wins.')
+                input('Press any key to continue.')
                 return True
 
         def check_rows() -> bool:
@@ -290,11 +292,29 @@ def menu(page) -> str:
         print('Would you like to start the game or go back to the main menu?')
         menu_options = '1. Start the game\n2. Back to main menu\n'
         menu_input = input(menu_options)
-
-    while menu_input != '1' and menu_input != '2':
-        print(f'\nYou entered {menu_input}, which is not a valid option.\n')
-        print('Please select one of the two options:')
+    elif page == 'play again':
+        game_logo()
+        print('Please select one of the four options:')
+        menu_options = '1. Play again\n2. Log out\n3. Quit game'
         menu_input = input(menu_options)
+
+    if page != 'play again':
+        while menu_input != '1' and menu_input != '2':
+            clear_screen()
+            game_logo
+            print(f'\nYou entered {menu_input}, which is not a valid option.\n')
+            print('Please select one of the two options:')
+            menu_input = input(menu_options)
+    else:
+        while (
+            menu_input != '1' and menu_input != '2' and menu_input != '3'
+            and menu_input != '4'
+        ):
+            clear_screen()
+            game_logo
+            print(f'\nYou entered {menu_input}, which is not a valid option.\n')
+            print('Please select one of the three options:')
+            menu_input = input(menu_options)
 
     if menu_input == '1':
         if page != 'log in':
@@ -311,7 +331,7 @@ def menu(page) -> str:
                 # loop to stop the game
                 game_over = grid.check_for_win()
                 if game_over:
-                    break
+                    menu('play again')
                 grid.place_mark()
                 clear_screen()
                 grid.print_grid()
@@ -332,6 +352,17 @@ def menu(page) -> str:
             clear_screen()
             play_val.register_players()
             menu('main menu')
+        elif page == 'play again':
+            clear_screen()
+            game_logo()
+            play_val.log_in()
+            menu('main menu')
+    elif page == 'play again' and menu_input == '3':
+        clear_screen()
+        game_logo()
+        print('Thanks for playing 5x5 Tic-Tac-Toe.')
+        print('Hope to see you again soon!')
+        sys.exit()
 
 
 def game_instructions():
