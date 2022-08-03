@@ -97,10 +97,14 @@ class Grid():
             won, returning True in either case
             """
             if self.player == 0:
-                print('Player 1 wins!')
+                print(f'{play_val.player_1_username} wins!')
+                play_val.update_score(play_val.player_1_username)
+                print(f'You now have a total of {play_val.player_1_wins} wins.')
                 return True
             else:
-                print('Player 2 wins!')
+                print(f'{play_val.player_2_username} wins!')
+                play_val.update_score(play_val.player_2_username)
+                print(f'You now have a total of {play_val.player_2_wins} wins.')
                 return True
 
         def check_rows() -> bool:
@@ -282,6 +286,7 @@ def menu(page) -> str:
         menu_options = '1. Start the game\n2. Read game instructions\n'
         menu_input = input(menu_options)
     elif page == 'game instructions':
+        game_logo()
         print('Would you like to start the game or go back to the main menu?')
         menu_options = '1. Start the game\n2. Back to main menu\n'
         menu_input = input(menu_options)
