@@ -1,4 +1,5 @@
 import os
+import sys
 import random
 import player_validation as play_val
 
@@ -99,14 +100,20 @@ class Grid():
             if self.player == 0:
                 print(f'{play_val.player_1_username} wins!')
                 play_val.update_score(play_val.player_1_username)
-                print(f'You now have a total of {play_val.player_1_wins} wins.')
-                input('Press any key to continue.')
+                print(f'You now have a total of '
+                      f'{play_val.player_1_wins} wins.\n')
+                print(f'{play_val.player_2_username} has a total of '
+                      f'{play_val.player_2_wins} wins.\n')
+                input('Press any key to continue.\n')
                 return True
             else:
                 print(f'{play_val.player_2_username} wins!')
                 play_val.update_score(play_val.player_2_username)
-                print(f'You now have a total of {play_val.player_2_wins} wins.')
-                input('Press any key to continue.')
+                print(f'You now have a total of {play_val.player_2_wins}'
+                      ' wins.\n')
+                print(f'{play_val.player_1_username} has a total of '
+                      f'{play_val.player_1_wins} wins.\n')
+                input('Press any key to continue.\n')
                 return True
 
         def check_rows() -> bool:
@@ -213,7 +220,7 @@ class Grid():
                 f"It's your turn, {play_val.player_2_username}.\n"
                 '\nPlease select a row (1 to 5): '
             )
-        
+
         col_text = 'Please select a column (A to E): '
         row = input(row_text)
         # Check if row variable has a correct value or not
@@ -295,14 +302,15 @@ def menu(page) -> str:
     elif page == 'play again':
         game_logo()
         print('Please select one of the four options:')
-        menu_options = '1. Play again\n2. Log out\n3. Quit game'
+        menu_options = '1. Play again\n2. Log out\n3. Quit game\n'
         menu_input = input(menu_options)
 
     if page != 'play again':
         while menu_input != '1' and menu_input != '2':
             clear_screen()
             game_logo
-            print(f'\nYou entered {menu_input}, which is not a valid option.\n')
+            print(f'\nYou entered {menu_input}, which is not a valid '
+                  'option.\n')
             print('Please select one of the two options:')
             menu_input = input(menu_options)
     else:
@@ -312,7 +320,8 @@ def menu(page) -> str:
         ):
             clear_screen()
             game_logo
-            print(f'\nYou entered {menu_input}, which is not a valid option.\n')
+            print(f'\nYou entered {menu_input}, which is not a valid '
+                  'option.\n')
             print('Please select one of the three options:')
             menu_input = input(menu_options)
 
@@ -355,8 +364,7 @@ def menu(page) -> str:
         elif page == 'play again':
             clear_screen()
             game_logo()
-            play_val.log_in()
-            menu('main menu')
+            menu('log in')
     elif page == 'play again' and menu_input == '3':
         clear_screen()
         game_logo()
