@@ -258,3 +258,19 @@ def registered_value(value):
         return True
     else:
         return False
+
+def update_score(player):
+    """
+    Add 1 to column C (total_wins) in the worksheet, defined in the WORKSHEET 
+    constant variable, to the player who won the game.
+    """
+    if player == player_1_username:
+        player_1_wins += 1
+        WORKSHEET.update_cell(
+            WORKSHEET.find(player_1_username).row, 2, + player_1_wins
+            )
+    elif player == player_2_username:
+        player_2_wins += 1
+        WORKSHEET.update_cell(
+            WORKSHEET.find(player_2_username).row, 2, + player_2_wins
+        )
