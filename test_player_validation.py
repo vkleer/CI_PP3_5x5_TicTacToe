@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import Mock, patch
+from unittest.mock import patch
 import player_validation as play_val
 
 
@@ -51,10 +51,12 @@ class TestPlayerRegistrationAndLogin(unittest.TestCase):
     @patch('builtins.input')
     def test_input(self, mocked_input):
         mocked_input.side_effect = (
-            ['testName', '1', 'testname@test.com', '1', '1', 'testName2', '1', 
+            ['Testname', '1', 'testname@test.com', '1', '1', 'Testname2', '1', 
              'testname2@test.com', '1', '1']
         )
         self.assertEqual(play_val.register_players(), None)
+        play_val.delete_test_data('Testname')
+        play_val.delete_test_data('Testname2')
 
 
 if __name__ == '__main__':
