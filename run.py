@@ -368,7 +368,7 @@ def menu(page) -> str:
     elif page == 'play again' and menu_input == '3':
         clear_screen()
         game_logo()
-        print('Thanks for playing 5x5 Tic-Tac-Toe.')
+        print('Thanks for playing.')
         print('Hope to see you again soon!')
         sys.exit()
 
