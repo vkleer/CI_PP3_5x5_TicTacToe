@@ -50,8 +50,11 @@ class TestPlayerRegistrationAndLogin(unittest.TestCase):
     """
     @patch('builtins.input')
     def test_input(self, mocked_input):
-        mocked_input.side_effect = ['bib', '1', 'bib@live.nl', '1']
-        play_val.register_players()
+        mocked_input.side_effect = (
+            ['testName', '1', 'testname@test.com', '1', '1', 'testName2', '1', 
+             'testname2@test.com', '1', '1']
+        )
+        self.assertEqual(play_val.register_players(), None)
 
 
 if __name__ == '__main__':
