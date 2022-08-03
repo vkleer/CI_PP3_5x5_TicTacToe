@@ -44,7 +44,7 @@ def register_players():
                 elif new_account == '2':
                     registration_complete = True
                     log_in()
-                    break
+                    return
                 else:
                     print(f'You entered {new_account}, please enter either 1 '
                           'to confirm or 2 to cancel: ')
@@ -64,8 +64,8 @@ def register_players():
                         confirm_input_bool = False
                         while not confirm_input_bool:
                             print(f'You entered: {player_username}. Is that '
-                                'correct? All usernames are automatically '
-                                'capitalized.')
+                                  'correct? All usernames are automatically '
+                                  'capitalized.')
                             confirm_username = input('1. Confirm\n2. Cancel\n')
 
                             if confirm_username == '1':
@@ -74,7 +74,7 @@ def register_players():
                                 confirm_input_bool = True
                                 username_set = True
                                 print(f'Great! Nice to meet you, '
-                                    f'{player_username}.')
+                                      f'{player_username}.')
                             elif confirm_username == '2':
                                 confirm_input_bool = True
                                 username_set = False
@@ -107,7 +107,8 @@ def register_players():
 
                         confirm_input_bool = False
                         while not confirm_input_bool:
-                            print(f'You entered: {player_email}. Is that correct?')
+                            print(f'You entered: {player_email}. Is that '
+                                  'correct?')
                             confirm_input = input('1. Confirm\n2. Cancel\n')
                             if confirm_input == '1':
                                 confirm_input_bool = True
@@ -118,7 +119,8 @@ def register_players():
                             else:
                                 clear_screen()
                                 game_logo()
-                                print('Please enter either 1 to confirm or 2 to cancel.')
+                                print('Please enter either 1 to confirm or 2 '
+                                      'to cancel.')
                     else:
                         clear_screen()
                         game_logo()
@@ -254,7 +256,8 @@ def log_in():
     clear_screen()
     game_logo()
     print(f'Welcome back, {player_2_username}!\n')
-    input('You are now both logged in - press any key to continue to the game.\n')
+    input('You are now both logged in - press any key to continue to '
+          'the game.\n')
 
 
 def registered_value(value):
@@ -270,6 +273,7 @@ def registered_value(value):
         return True
     else:
         return False
+
 
 def update_score(player):
     """
