@@ -39,7 +39,8 @@ def register_players():
                 new_account = input('1. Register new account\n2. Already have '
                                     'an account, go to login\n')
                 if new_account == '1':
-                    print('Alright.')
+                    clear_screen()
+                    game_logo()
                 elif new_account == '2':
                     registration_complete = True
                     log_in()
@@ -118,9 +119,10 @@ def register_players():
 
             clear_screen()
             game_logo()
-            print(f'Registration complete, thanks {player_username}.\n')
             player_data[i] = [player_username, player_email, 0]
             WORKSHEET.append_row(player_data[i])
+            print(f'Registration complete, thanks {player_username}.\n')
+        input('Press any key to continue.\n')
         registration_complete = True
 
 
