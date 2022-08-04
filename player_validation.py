@@ -88,8 +88,6 @@ def register_players():
                         print(f'The username {player_username} is already in '
                               'use. Please try a different one.')
                 else:
-                    clear_screen()
-                    game_logo()
                     print(f'You entered {player_username}.')
 
             # Check if player added a valid email address and if the user wants
@@ -145,8 +143,12 @@ def validate_player_username(username):
     """
     try:
         if len(username) <= 2 or len(username) > 20:
+            clear_screen()
+            game_logo()
             print('Username must be between 2 to 20 characters long.')
         elif not username.isalnum():
+            clear_screen()
+            game_logo()
             print('Username can only contain letters or digits.')
         else:
             return True
