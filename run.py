@@ -384,6 +384,9 @@ def game_instructions():
     print('in a row, either horizontally, vertically or diagonally. If '
           'no one is able to get 4 marks in a')
     print('row, then the game is a draw.\n')
+    input('Press any key to clear the screen and continue.\n')
+    # Clear screen in between instructions
+    clear_screen()
     print('To play the game, you first have to pick a row, then a column.'
           ' For example, if you are playing')
     print('with the X marks, picking row 2 and column D would look like '
@@ -397,11 +400,14 @@ def game_instructions():
     grid.print_grid()
     # Reset the board mark on row 2, column D back to a space
     grid_marks[1][3] = ' '
-    print("\nYou cannot overwrite another players' mark, trying to do so "
+    input('Press any key to clear the screen and continue.\n')
+    # Clear screen in between instructions
+    clear_screen()
+    print("You cannot overwrite another players' mark, trying to do so "
           "will result in the game asking")
     print('you to pick a different location instead. Good luck and have '
           'fun playing!\n')
-    input('Press any key to clear the screen and continue.\n')
+    input('Press any key to continue.\n')
     del grid
     clear_screen()
     menu('game instructions')
@@ -409,7 +415,7 @@ def game_instructions():
 
 def main():
     """
-    Runs the required functions to start the program
+    Runs the required function to start the program
     """
     menu('log in')
 
