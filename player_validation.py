@@ -34,9 +34,9 @@ def register_players():
         game_logo()
         for i in range(2):
             if i == 1:
-                print('Would player 2 like to register too, or do you already '
-                      'have an account?')
-                new_account = input('1. Register new account\n2. Already have '
+                print('Player 2, would you like to create a new account,'
+                      'or do you already have one?')
+                new_account = input('1. Create new account\n2. Already have '
                                     'an account, go to login\n')
                 if new_account == '1':
                     clear_screen()
@@ -225,9 +225,9 @@ def log_in():
                         game_logo()
                         print(f'{player_email} is not registered, do you '
                               'want to try different email address or '
-                              'register a new account?')
+                              'create a new account?')
                         try_again = input('1. Try different email address\n'
-                                          '2. Register new account\n')
+                                          '2. Create new account\n')
                         if try_again == '1':
                             print('Ok.')
                         elif try_again == '2':
