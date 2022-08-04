@@ -42,19 +42,31 @@
 ### User Requirements and Expectations
 -
 
-## User Manual
+### User Manual
 
-### User Stories
+## User Stories
 
-#### User
+### User
+1. As a user, I want to be able to read the game instructions
+2. As a user, I want to be able to create an account
+3. As a user, I want to be able to log in with my account
+4. As a user, I want to be able to log out when I'm done
+5. As a user, I want to be able to quit the game
+6. As a user, I want to know how many games I've won
+7. As a user, I want to receive feedback during and after the game
+8. As a user, I want to be informed if I provide wrong input in the game
 
-#### Site owner
+### Site owner
+9. As the website owner, I want the game to be fair and have a random player get the first turn on each game
+10. As the website owner, I want to provide feedback to users when they provide invalid input
+11. As the website owner, I want usernames and email addresses to be saved to a Google Sheets file
+12. As the website owner, I want users to be able to decide if they want to create one or two accounts during the registration process
 
 ## Technical Design
 
 ### Flowchart
 
-## Data Models
+### Data Models
 
 ## Technologies Used
 
