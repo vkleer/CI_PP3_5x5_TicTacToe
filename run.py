@@ -44,31 +44,15 @@ class Grid():
         """
         print('     │  A  │  B  │  C  │  D  │  E  │')
         print('─────┼─────┼─────┼─────┼─────┼─────┤')
-        print(f"  1"
-              f"  │  {self.grid_marks[0][0]}  │  {self.grid_marks[0][1]}"
-              f"  │  {self.grid_marks[0][2]}  │  {self.grid_marks[0][3]}"
-              f"  │  {self.grid_marks[0][4]}  │")
-        print('─────┼─────┼─────┼─────┼─────┼─────┤')
-        print(f"  2"
-              f"  │  {self.grid_marks[1][0]}  │  {self.grid_marks[1][1]}"
-              f"  │  {self.grid_marks[1][2]}  │  {self.grid_marks[1][3]}"
-              f"  │  {self.grid_marks[1][4]}  │")
-        print('─────┼─────┼─────┼─────┼─────┼─────┤')
-        print(f"  3"
-              f"  │  {self.grid_marks[2][0]}  │  {self.grid_marks[2][1]}"
-              f"  │  {self.grid_marks[2][2]}  │  {self.grid_marks[2][3]}"
-              f"  │  {self.grid_marks[2][4]}  │")
-        print('─────┼─────┼─────┼─────┼─────┼─────┤')
-        print(f"  4"
-              f"  │  {self.grid_marks[3][0]}  │  {self.grid_marks[3][1]}"
-              f"  │  {self.grid_marks[3][2]}  │  {self.grid_marks[3][3]}"
-              f"  │  {self.grid_marks[3][4]}  │")
-        print('─────┼─────┼─────┼─────┼─────┼─────┤')
-        print(f"  5"
-              f"  │  {self.grid_marks[4][0]}  │  {self.grid_marks[4][1]}"
-              f"  │  {self.grid_marks[4][2]}  │  {self.grid_marks[4][3]}"
-              f"  │  {self.grid_marks[4][4]}  │")
-        print('─────┴─────┴─────┴─────┴─────┴─────┘')
+        for i in range(5):
+            print(f"  {i + 1}"
+            f"  │  {self.grid_marks[i][0]}  │  {self.grid_marks[i][1]}"
+            f"  │  {self.grid_marks[i][2]}  │  {self.grid_marks[i][3]}"
+            f"  │  {self.grid_marks[i][4]}  │")
+            if i != 4:
+                print('─────┼─────┼─────┼─────┼─────┼─────┤')
+            else:
+                print('─────┴─────┴─────┴─────┴─────┴─────┘')
 
     def change_player(self) -> int:
         """
@@ -387,6 +371,7 @@ def game_instructions():
     input('Press any key to clear the screen and continue.\n')
     # Clear screen in between instructions
     clear_screen()
+    game_logo()
     print('To play the game, you first have to pick a row, then a column.'
           ' For example, if you are playing')
     print('with the X marks, picking row 2 and column D would look like '
@@ -403,6 +388,7 @@ def game_instructions():
     input('Press any key to clear the screen and continue.\n')
     # Clear screen in between instructions
     clear_screen()
+    game_logo()
     print("You cannot overwrite another players' mark, trying to do so "
           "will result in the game asking")
     print('you to pick a different location instead. Good luck and have '
