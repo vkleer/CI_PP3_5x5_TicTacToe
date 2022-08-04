@@ -46,14 +46,14 @@ def register_players():
                     return
                 else:
                     print(f'You entered {new_account}, please enter either 1 '
-                          'to confirm or 2 to cancel: ')
+                          'to confirm or 2 to cancel.')
 
             print(f"Let's start the registration proces for player {i + 1}.")
 
             username_set = False
             while not username_set:
                 player_username = input('Please enter your preferred '
-                                        'username: ').capitalize()
+                                        'username: \n').capitalize()
 
                 if validate_player_username(player_username):
                     if not registered_value(player_username):
@@ -97,7 +97,7 @@ def register_players():
             email_set = False
             while not email_set:
                 player_email = input('Please enter your email '
-                                     'address: ').lower()
+                                     'address: \n').lower()
 
                 if validate_player_email(player_email):
                     if not registered_value(player_email):
@@ -202,7 +202,7 @@ def log_in():
 
             get_email = False
             while not get_email:
-                player_email = input('Email address: ')
+                player_email = input('Email address: \n')
 
                 if validate_player_email(player_email):
                     if registered_value(player_email):
