@@ -29,10 +29,12 @@
 ## Project Goals
 
 ### User Goals
-- 
+- Play a simple and fun game for two players
+- Be able to create and log in to an account that keeps my score
 
 ### Website Owner Goals
--
+- Creating a fun game with clear instructions and simple mechanics
+- Provide clear feedback to the players so they never get stuck
 
 ## User Experience
 
