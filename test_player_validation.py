@@ -10,16 +10,16 @@ class TestPlayerValidationFunctions(unittest.TestCase):
     Second, tests the validate_player_email function from player_validation.
     Verifies both valid and invalid email addresses.
     Third, tests the register_players function from player_validation.
-    Verifies both valid and invalid registration input.
+    Verifies valid registration input using patch decorator.
     And last, tests the log_in function from player_validation.
-    Verifies both valid and invalid log in input.
+    Verifies valid log in input using patch decorator.
     """
-    def test_1_validate_player_username(self):
+    def test_1A_validate_player_username(self):
         self.assertTrue(
             play_val.validate_player_username('Billy123'), True
         )
 
-    def test_1_validate_invalid_player_username(self):
+    def test_1B_validate_invalid_player_username(self):
         self.assertEqual(
             play_val.validate_player_username('A'), None
         )
@@ -30,12 +30,12 @@ class TestPlayerValidationFunctions(unittest.TestCase):
             play_val.validate_player_username('AlfredoTheMagnificentOne'), None
         )
 
-    def test_2_validate_player_email(self):
+    def test_2A_validate_player_email(self):
         self.assertTrue(
             play_val.validate_player_email('test@outlook.com'), True
         )
 
-    def test_2_validate_invalid_player_email(self):
+    def test_2B_validate_invalid_player_email(self):
         self.assertEqual(
             play_val.validate_player_email('NotAnEmailAddress'), None
         )
