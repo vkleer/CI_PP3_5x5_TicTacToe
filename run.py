@@ -46,9 +46,9 @@ class Grid():
         print('─────┼─────┼─────┼─────┼─────┼─────┤')
         for i in range(5):
             print(f"  {i + 1}"
-            f"  │  {self.grid_marks[i][0]}  │  {self.grid_marks[i][1]}"
-            f"  │  {self.grid_marks[i][2]}  │  {self.grid_marks[i][3]}"
-            f"  │  {self.grid_marks[i][4]}  │")
+                  f"  │  {self.grid_marks[i][0]}  │  {self.grid_marks[i][1]}"
+                  f"  │  {self.grid_marks[i][2]}  │  {self.grid_marks[i][3]}"
+                  f"  │  {self.grid_marks[i][4]}  │")
             if i != 4:
                 print('─────┼─────┼─────┼─────┼─────┼─────┤')
             else:
