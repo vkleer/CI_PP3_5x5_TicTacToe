@@ -50,6 +50,39 @@
 - Providing a personal touch through unique usernames
 
 ### User Manual
+<details><summary>Click here for the user manual</summary>
+#### Log in menu
+When users start the program, they land on the log in menu. Above the menu, and on every other 'page' of the program except for the actual game, an ASCII logo of the game is shown. Below the logo the user is presented with two options.
+Operation: Input a numeric value and press the enter key.
+1. Log in
+2. Create new account
+
+If the user at any point in the program or game enters a value that does not correspond to the options available, they will receive feedback of what they entered and are reminded of the available options.
+
+#### Log in
+If option 1 is selected from the log in menu, the users will be asked to enter the email addresses they used to create an account. It will first ask player 1 to enter their email address and the player 2. It doesn't matter who logs in first as a random player will get the first turn each game.
+
+Each email address is validated, first by checking if it follows the format of 'name@email.com' and second by looking up the email address in the database (Google Sheets file). 
+If the email address doesn't follow the correct format, users will be given feedback, e.g. 'It must have exactly one @-sign'. If they enter the correct format but the email address is not registered, they will be presented with two options.
+Operation: Input a numeric value and press the enter key.
+1. Try different email address
+2. Create new account
+
+If option 1 is selected, the log in process is repeated. If option 2 is chosen, users will be able to create a new account, described below.
+
+#### Create new account
+If option 2 is selected in either the log in menu or after a failed log in, users will be taken here. 
+
+Player 1 will be asked to provide a username for their account, which is validated: The username has to be between 2 to 20 characters long can only contain letters and digits - no special characters are allowed. After the validation, the username will be compared to the existing usernames in the database (Google Sheets file) and if a match is found, the player will be informed and has to provide a new username.
+
+Then, player 1 will be asked to provide an email address for their account, which is also validated: the emaill address has to follow the format of 'name@email.com'. After the validation, the email address will be compared to the existing email addresses in the database (Google Sheets file) and if a match is found, the player will be informed and has to provide a new email address.
+
+After player 1 has created their account, player 2 will be presented with two options.
+Operation: Input a numeric value and press the enter key.
+1. Create new account
+2. Already have an account, go to log in menu
+
+</details>
 
 ## User Stories
 
