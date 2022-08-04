@@ -1,31 +1,142 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# 5x5 Tic-Tac-Toe
+(Developer: Vilayat Kleer)
 
-Welcome Vilayat Kleer,
+![mockup-image.jpg]()
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+[View the live website](https://ci-pp3-5x5-tictactoe.herokuapp.com/)
 
-## Reminders
+## Table of Contents
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+1. [Project Goals](#project-goals)
+    1. [User Goals](#user-goals)
+    2. [Website Owner Goals](#website-owner-goals)
+2. [User Experience](#user-experience)
+    1. [Target Audience](#target-audience)
+    2. [User Requirements and Expectations](#user-requirements-and-expectations)
+    3. [User Stories](#user-stories)
+    4. [User Manual](#user-manual)
+3. [Technical Design](#technical-design)
+4. [Technologies Used](#technologies-used)
+    1. [Languages](#languages)
+    2. [Tools](#tools)
+5. [Features](#features)
+6. [Testing](#validation)
+8. [Bugs](#Bugs)
+9. [Deployment](#deployment)
+10. [Credits](#credits)
+11. [Acknowledgements](#acknowledgements)
 
-## Creating the Heroku app
+## Project Goals
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+### User Goals
+- 
 
-1. `heroku/python`
-2. `heroku/nodejs`
+### Website Owner Goals
+-
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+## User Experience
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+### Target Audience
+- 
 
-Connect your GitHub repository and deploy as normal.
+### User Requirements and Expectations
+-
 
-## Constraints
+## User Manual
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+### User Stories
 
------
-Happy coding!
+#### User
+
+#### Site owner
+
+## Technical Design
+
+### Flowchart
+
+## Data Models
+
+## Technologies Used
+
+### Languages
+- Python
+
+### Tools
+- Gitpod
+- Github
+- Git
+
+### Libraries
+
+## Built-in Libraries
+
+## THird Party Libraries
+
+## Features
+The website has a total of x features:
+
+### Feature
+- Feature description
+
+## Testing
+
+### Python Validation
+
+### Manual Testing
+
+### Automated Testing
+
+### Testing User Stories
+1. As a user, I want to be able to play the game on different difficulty levels
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Feature name | Action  | Expected result | Works as expected |
+
+<details><summary>Supporting Screenshots - User Story 1</summary>
+    <img src="docs/user-story-testing/user-story-01.png">
+</details>
+
+
+## Bugs
+
+| **Bug** | **Fix** |
+|-------------|------------|
+| Bug | Fix - [link to commit](link) |
+
+
+## Deployment
+
+### GitHub
+
+This website was deployed using Github Pages with the following steps:
+
+1. Go to your Github Repository
+2. Navigate to the 'Settings' page
+3. On the left hand menu under 'Code and automationo', click on 'Pages'
+4. Under 'Source', click on the 'Branch' dropdown element and set it to your main branch (in my case, this branch is called 'main')
+5. Click on 'Save'
+6. Refresh the page and you will be provided with a link to your deployed Github Page.
+
+If you want to fork this repository, follow these steps:
+
+1. Go to the Github repository (https://github.com/vkleer/CI_PP1_TD)
+2. Click on the 'Fork' button in the top right corner under the navigation bar
+
+If you want to clone this repository, follow these steps:
+
+1. Go to the Github repository (https://github.com/vkleer/CI_PP1_TD)
+2. Click on the 'Code' button above the list of files
+3. Select your preferred way of cloning, I recommend using the 'GitHub CLI' option
+4. Under 'GitHub CLI', click on the copy button to copy the clone command
+5. In you IDE, open Git Bash
+6. Navigate to the working directory where you want to clone this directory
+7. Paste in the clone command you copied and press the 'enter' key to create the clone
+
+## Credits
+Images that are not referenced below are created or owned by the developer.
+
+## Acknowledgements
+I would like to thank:
+- My mentor Mo Shami for providing me with advice and guidance for this project
+- My partner Lauren Baker for helping me with testing and finding multiple bugs
