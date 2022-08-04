@@ -197,15 +197,15 @@ class Grid():
         if self.player == 1:
             row_text = (
                 f"It's your turn, {play_val.player_1_username}.\n"
-                '\nPlease select a row (1 to 5): '
+                '\nPlease select a row (1 to 5): \n'
             )
         else:
             row_text = (
                 f"It's your turn, {play_val.player_2_username}.\n"
-                '\nPlease select a row (1 to 5): '
+                '\nPlease select a row (1 to 5): \n'
             )
 
-        col_text = 'Please select a column (A to E): '
+        col_text = 'Please select a column (A to E): \n'
         row = input(row_text)
         # Check if row variable has a correct value or not
         row_set = False
