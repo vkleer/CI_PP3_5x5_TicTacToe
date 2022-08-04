@@ -48,7 +48,8 @@ def register_players():
                     print(f'You entered {new_account}, please enter either 1 '
                           'to confirm or 2 to cancel.')
 
-            print(f"Let's start the registration proces for player {i + 1}.")
+            print("Let's start the registration process for player "
+                  f"{i + 1}.")
 
             username_set = False
             while not username_set:
@@ -130,7 +131,8 @@ def register_players():
             game_logo()
             player_data[i] = [player_username, player_email, 0]
             WORKSHEET.append_row(player_data[i])
-            print(f'Registration complete, thanks {player_username}.\n')
+            print('Registration complete, your account has been successfully '
+                  f'created. Thanks {player_username}.\n')
         input('Press any key to continue.\n')
         registration_complete = True
 
