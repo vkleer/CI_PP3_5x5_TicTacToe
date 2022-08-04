@@ -191,7 +191,7 @@ class Grid():
     def place_mark(self):
         """
         Places an 'X' or 'O' mark on the grid, depending on who's turn it is.
-        Validates user input to avoid overriding another players' mark or
+        Validates players' input to avoid overriding another players' mark or
         entering invalid rows/columns.
         """
         if self.player == 1:
@@ -261,9 +261,14 @@ class Grid():
 def menu(page) -> str:
     """
     Shows a menu that changes depending on what parameter 'page' is set to.
+    When set to 'log in', allow users to log in to their account or to
+    create a new one.
     When set to 'main menu', allow users to start the game or read the game
-    instructions. When set to 'game instructions', allow users to start the
-    game or call this function again, setting parameter 'page' to 'main menu'.
+    instructions. 
+    When set to 'game instructions', allow users to start the game or go 
+    back to the 'main menu'.
+    When set to 'play again', allow users to play another game, log out or 
+    quit the game.
     @param page: string
     """
     clear_screen()
