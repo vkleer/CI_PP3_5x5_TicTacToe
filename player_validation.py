@@ -34,19 +34,25 @@ def register_players():
         game_logo()
         for i in range(2):
             if i == 1:
-                print('Player 2, would you like to create a new account,'
-                      'or do you already have one?')
-                new_account = input('1. Create new account\n2. Already have '
-                                    'an account, go to login\n')
-                if new_account == '1':
-                    clear_screen()
-                    game_logo()
-                elif new_account == '2':
-                    registration_complete = True
-                    return
-                else:
-                    print(f'You entered {new_account}, please enter either 1 '
-                          'to confirm or 2 to cancel.')
+                confirm_input_bool = False
+                while not confirm_input_bool:
+                    print('Player 2, would you like to create a new account,'
+                          'or do you already have one?')
+                    new_account = input('1. Create new account\n2. Already '
+                                        'have an account, go to log in menu\n')
+
+                    if new_account == '1':
+                        confirm_input_bool = True
+                        clear_screen()
+                        game_logo()
+                    elif new_account == '2':
+                        registration_complete = True
+                        return
+                    else:
+                        clear_screen()
+                        game_logo()
+                        print(f'You entered {new_account}, please enter '
+                              'either 1 to confirm or 2 to cancel.')
 
             print("Let's start the registration process for player "
                   f"{i + 1}.")
