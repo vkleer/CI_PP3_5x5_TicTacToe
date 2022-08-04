@@ -39,10 +39,15 @@
 ## User Experience
 
 ### Target Audience
-- 
+- People who like Tic-Tac-Toe
+- People who want to play a simple and fun game
+- Casual gamers
 
 ### User Requirements and Expectations
--
+- A simple, fun game that anyone can play
+- Clear options for each menu or interaction
+- Clear feedback provided when necessary
+- Providing a personal touch through unique usernames
 
 ### User Manual
 
