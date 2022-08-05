@@ -188,16 +188,28 @@ A flowchart has been created to display the structure and logic of the program.
 - [**email_validator**](https://pypi.org/project/email-validator/) is used to validate the players' email address when entered on registration and log in. It must follow the format of 'name@example.com'.
 
 ## Features
-The website has a total of 9 main features:
+The website has a total of 8 main features:
 
 ### Game logo
 - Logo created from ASCII characters 
 - Is present everywhere throughout the program except during the game to make room for the 5x5 grid
 
+<details><summary>Screenshot of game logo</summary>
+    <img src="docs/features/game-logo.JPG">
+</details>
+
 ### Log in menu
 - Presents users with the option to log in, create an account or quit the game
 - Validates the input, providing feedback if input was invalid. User will be prompted to try again if a non-existing option was selected.
 - Covers user story **2**, **3**, **5** and **10**
+
+<details><summary>Screenshot of log in menu</summary>
+    <img src="docs/features/log-in-menu.JPG">
+</details>
+
+<details><summary>Screenshot of log in menu validation</summary>
+    <img src="docs/features/log-in-menu-validation.JPG">
+</details>
 
 ### Log in
 - Asks for a registered email address from player 1 and player 2, which must follow the format of 'name@example.com'
@@ -207,6 +219,16 @@ The website has a total of 9 main features:
 - After successfully logging in, each player is greeted by their username
 - Covers user story **3** and **10**
 
+<details><summary>Screenshot of log in</summary>
+    <img src="docs/features/log-in-1.JPG">
+    <img src="docs/features/log-in-2.JPG">
+    <img src="docs/features/log-in-3.JPG">
+</details>
+
+<details><summary>Screenshot of log in menu validation</summary>
+    <img src="docs/features/log-in-validation.JPG">
+</details>
+
 ### Create new account
 - Allows users to create a new account for the game
 - Asks for a username, which has to be unique and can only contain letters or digits
@@ -214,22 +236,58 @@ The website has a total of 9 main features:
 - Validates the username and email address, providing feedback if input was invalid. User will be prompted to enter a new username of email address if invalid
 - After validation, the user will be asked to confirm their username and email address respectively. This is done to minimize user errors.
 - Once player 1 has completed their registration, ask if player 2 wants to create a new account or go back to the log in menu
- - Covers user story **2**, **10**, **11** and **12**
+- Covers user story **2**, **10**, **11** and **12**
+
+<details><summary>Screenshots of registration process</summary>
+    <img src="docs/features/create-new-account-1.JPG">
+    <img src="docs/features/create-new-account-2.JPG">
+    <img src="docs/features/create-new-account-3.JPG">
+    <img src="docs/features/create-new-account-4.JPG">
+    <img src="docs/features/create-new-account-5.JPG">
+</details>
+
+<details><summary>Screenshots of registration validation</summary>
+    <img src="docs/features/create-new-account-validation-1.JPG">
+    <img src="docs/features/create-new-account-validation-2.JPG">
+    <img src="docs/features/create-new-account-validation-3.JPG">
+    <img src="docs/features/create-new-account-validation-4.JPG">
+    <img src="docs/features/create-new-account-validation-5.JPG">
+    <img src="docs/features/create-new-account-validation-6.JPG">
+    <img src="docs/features/create-new-account-validation-7.JPG">
+</details>
 
 ### Main menu
 - Presents users with the option to start the game, read the game instructions, view each players' win count or log out.
 - Validates the input, providing feedback if input was invalid. User will be prompted to try again if a non-existing option was selected.
 - Covers user story **1**, **4**, **6** and **10**
 
+<details><summary>Screenshot of main menu</summary>
+    <img src="docs/features/main-menu.JPG">
+</details>
+
+<details><summary>Screenshot of main menu validation</summary>
+    <img src="docs/features/main-menu-validation.JPG">
+</details>
+
 ### Game instructions
 - Displays the game instructions in a clear and easy to follow format
 - Takes users back to the main menu after they've gone through the game instructions
 - Covers user story **1**
 
+<details><summary>Screenshots of game instructions</summary>
+    <img src="docs/features/game-instructions-1.JPG">
+    <img src="docs/features/game-instructions-2.JPG">
+    <img src="docs/features/game-instructions-3.JPG">
+</details>
+
 ### View win count
 - Displays each players total amount of wins
 - Takes players back to the main menu after entering any key and pressing the enter key
 - Covers user story **6**
+
+<details><summary>Screenshot of view win count</summary>
+    <img src="docs/features/view-win-count.JPG">
+</details>
 
 ### Game
 - A random player is picked to have the first turn at the start of each game
@@ -237,14 +295,24 @@ The website has a total of 9 main features:
 - The game grid is printed when the game starts and is updated after each turn
 - Players are asked to select a row number and column letter to place a mark on the grid
 - Validates the row number and column letter, providing feedback if input was invalid. User will be prompted to enter a new row number or column letter if invalid
+- After a mark is placed, it will then be the other players' turn
 - Provides feedback when a game is won or a tie.
     - If a game is won, the player will receive a congratulatory message with their name and their new win count
     - If the game is a tie, a message will be displayed to inform the players and take them back to the main menu
 - Covers user story **7**, **8**, **9** and **10**
 
-### Input validation
-- All the input throughout the program is validated. If wrong input was entered the user will receive useful feedback to understand what went wrong and will be prompted to try again
-- Covers user story **8** and **10**
+<details><summary>Screenshots of registration process</summary>
+    <img src="docs/features/game-1.JPG">
+    <img src="docs/features/game-2.JPG">
+    <img src="docs/features/game-3.JPG">
+    <img src="docs/features/game-4.JPG">
+    <img src="docs/features/game-5.JPG">
+</details>
+
+<details><summary>Screenshots of registration validation</summary>
+    <img src="docs/features/game-validation-1.JPG">
+    <img src="docs/features/game-validation-2.JPG">
+</details>
 
 ## Testing
 
