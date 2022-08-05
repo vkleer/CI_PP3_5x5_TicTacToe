@@ -86,8 +86,6 @@ class Grid():
                 play_val.update_score(play_val.player_1_username)
                 print(f'You now have a total of '
                       f'{play_val.player_1_wins} wins.\n')
-                print(f'{play_val.player_2_username} has a total of '
-                      f'{play_val.player_2_wins} wins.\n')
                 input('Press any key to continue.\n')
                 return True
             else:
@@ -95,8 +93,6 @@ class Grid():
                 play_val.update_score(play_val.player_2_username)
                 print(f'You now have a total of {play_val.player_2_wins}'
                       ' wins.\n')
-                print(f'{play_val.player_1_username} has a total of '
-                      f'{play_val.player_1_wins} wins.\n')
                 input('Press any key to continue.\n')
                 return True
 
@@ -269,8 +265,8 @@ def menu(page) -> str:
     Shows a menu that changes depending on what parameter 'page' is set to.
     When set to 'log in', allow users to log in to their account or to
     create a new one.
-    When set to 'main menu', allow users to start the game or read the game
-    instructions. 
+    When set to 'main menu', allow users to start the game, read the game
+    instructions or view their total amount of wins.
     When set to 'game instructions', allow users to start the game or go 
     back to the 'main menu'.
     When set to 'play again', allow users to play another game, log out or 
@@ -285,9 +281,11 @@ def menu(page) -> str:
         menu_input = input(menu_options)
     elif page == 'main menu':
         game_logo()
-        print('Would you like to start the game or read the game '
-              'instructions?')
-        menu_options = '1. Start the game\n2. Read game instructions\n'
+        print('Would you like to start the game, read the game '
+              'instructions or view your win count?')
+        menu_options = (
+            '1. Start the game\n2. Read game instructions\n3. View win count\n'
+        )
         menu_input = input(menu_options)
     elif page == 'game instructions':
         game_logo()
@@ -296,11 +294,11 @@ def menu(page) -> str:
         menu_input = input(menu_options)
     elif page == 'play again':
         game_logo()
-        print('Please select one of the four options:')
+        print('Please select one of the three options:')
         menu_options = '1. Play again\n2. Log out\n3. Quit game\n'
         menu_input = input(menu_options)
 
-    if page != 'play again':
+    if page != 'play again' and page != 'main menu':
         while menu_input != '1' and menu_input != '2':
             clear_screen()
             game_logo
@@ -311,7 +309,6 @@ def menu(page) -> str:
     else:
         while (
             menu_input != '1' and menu_input != '2' and menu_input != '3'
-            and menu_input != '4'
         ):
             clear_screen()
             game_logo
@@ -360,12 +357,22 @@ def menu(page) -> str:
             clear_screen()
             game_logo()
             menu('log in')
-    elif page == 'play again' and menu_input == '3':
-        clear_screen()
-        game_logo()
-        print('Thanks for playing.')
-        print('Hope to see you again soon!')
-        sys.exit()
+    elif menu_input == '3':
+        if page == 'main menu':
+            clear_screen()
+            game_logo()
+            print(f'{play_val.player_1_username} has a total of '
+                  f'{play_val.player_1_wins} wins.\n')
+            print(f'{play_val.player_2_username} has a total of '
+                  f'{play_val.player_2_wins} wins.\n')
+            input('Press any key to continue.\n')
+            menu('main menu')
+        elif page == 'play again':
+            clear_screen()
+            game_logo()
+            print('Thanks for playing.')
+            print('Hope to see you again soon!')
+            sys.exit()
 
 
 def game_instructions():
@@ -379,7 +386,7 @@ def game_instructions():
     print('in a row, either horizontally, vertically or diagonally. If '
           'no one is able to get 4 marks in a')
     print('row, then the game is a draw.\n')
-    input('Press any key to clear the screen and continue.\n')
+    input('Press any key to continue.\n')
     # Clear screen in between instructions
     clear_screen()
     game_logo()
@@ -396,7 +403,7 @@ def game_instructions():
     grid.print_grid()
     # Reset the board mark on row 2, column D back to a space
     grid_marks[1][3] = ' '
-    input('Press any key to clear the screen and continue.\n')
+    input('Press any key to continue.\n')
     # Clear screen in between instructions
     clear_screen()
     game_logo()
