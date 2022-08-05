@@ -240,44 +240,47 @@ class Grid():
         # Check if row variable has a correct value or not
         row_set = False
         while not row_set:
+            clear_screen()
+            self.print_grid()
             try:
                 row = int(row)
             except ValueError:
-                print(f'You entered {row}, which is not a number.')
+                print(f'You entered {row}, which is not a number.\n')
                 row = input(row_text)
             else:
-                row_set = True
-                row -= 1
-
-        while 0 < int(row) > 4:
-            print(f'You entered {row}, which is not a valid row.')
-            row = input(row_text)
+                if 0 < int(row) > 4:
+                    print(f'You entered {row}, which is not a valid row.\n')
+                    row_set = False
+                    row = input(row_text)
+                else:
+                    row_set = True
+                    row -= 1
 
         col_text = 'Please select a column (A to E): \n'
         col_raw = input(col_text)
+        clear_screen()
+        self.print_grid()
         # Used to see if col_raw variable is empty or not
         col_set = False
         while not col_set:
-            if col_raw != '':
-                try:
-                    # Convert the letter into a number using ord(), then 97
-                    # is subtracted to get the correct number as 'a' is 
-                    # equal to 97, 'b' is equal to 98 etc.
-                    col = ord(col_raw.lower()) - 97
-                except TypeError:
-                    print(f'You entered {col_raw}, which is not a letter.')
+            clear_screen()
+            self.print_grid()
+            try:
+                # Convert the letter into a number using ord(), then 97
+                # is subtracted to get the correct number as 'a' is 
+                # equal to 97, 'b' is equal to 98 etc.
+                col = ord(col_raw.lower()) - 97
+            except TypeError:
+                print(f'You entered {col_raw}, which is not a letter.\n')
+                col_raw = input(col_text)
+            else:
+                if col < 0 or col > 4:
+                    print(f'You entered {col_raw.upper()}, which '
+                          'is not a valid column.\n')
+                    col_set = False
                     col_raw = input(col_text)
                 else:
-                    if col < 0 or col > 4:
-                        print(f'You entered {col_raw.upper()}, which '
-                              'is not a valid column.')
-                        col_set = False
-                        col_raw = input(col_text)
-                    else:
-                        col_set = True
-            else:
-                print(f'You entered {col_raw}, which is not a letter.')
-                col_raw = input(col_text)
+                    col_set = True
 
         if self.grid_marks[row][col] != ' ':
             print('A mark is already in place, please select a different'
