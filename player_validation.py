@@ -268,7 +268,7 @@ def registered_value(value):
 
 def update_score(player):
     """
-    Add 1 to column C (total_wins) in the worksheet, defined in the WORKSHEET 
+    Add 1 to column C (total_wins) in the worksheet, defined in the WORKSHEET
     constant variable, to the player who won the game.
     """
     if player == player_1_username:

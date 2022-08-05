@@ -59,7 +59,7 @@ def quit_game():
 
 def continue_input():
     """
-    Pauses the current interaction until any key has been entered and 
+    Pauses the current interaction until any key has been entered and
     the enter key has been pressed
     """
     input('Press any key to continue.\n')
@@ -269,7 +269,7 @@ class Grid():
             self.print_grid()
             try:
                 # Convert the letter into a number using ord(), then 97
-                # is subtracted to get the correct number as 'a' is 
+                # is subtracted to get the correct number as 'a' is
                 # equal to 97, 'b' is equal to 98 etc.
                 col = ord(col_raw.lower()) - 97
             except TypeError:
@@ -307,7 +307,7 @@ def menu(page) -> str:
     new one or log out.
     When set to 'main', allow users to start the game, read the game
     instructions, view their win count or log out.
-    When set to 'play again', allow users to play another game, view their 
+    When set to 'play again', allow users to play another game, view their
     wint count, log out or quit the game.
     @param page: string
     """
@@ -412,7 +412,7 @@ def menu(page) -> str:
         if page == 'main':
             log_out()
         elif page == 'play again':
-            quit_game()         
+            quit_game()
 
 
 def game_instructions():
