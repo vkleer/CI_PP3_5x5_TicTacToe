@@ -227,23 +227,26 @@ class Grid():
         # Used to see if col_raw variable is empty or not
         col_set = False
         while not col_set:
-            try:
-                # Convert the letter into a number using ord(), then 97 is subtracted
-                # to get the correct number as 'a' is equal to 97, 'b' is equal to
-                # 98 etc.
-                if len(col_raw) != 0:
-                    col = ord(col_raw.lower()[0]) - 97
-            except TypeError:
+            if col_raw != '':
+                try:
+                    # Convert the letter into a number using ord(), then 97
+                    # is subtracted to get the correct number as 'a' is 
+                    # equal to 97, 'b' is equal to 98 etc.
+                    col = ord(col_raw.lower()) - 97
+                except TypeError:
+                    print(f'You entered {col_raw}, which is not a letter.')
+                    col_raw = input(col_text)
+                else:
+                    if col < 0 or col > 4:
+                        print(f'You entered {col_raw.upper()}, which '
+                              'is not a valid column.')
+                        col_set = False
+                        col_raw = input(col_text)
+                    else:
+                        col_set = True
+            else:
                 print(f'You entered {col_raw}, which is not a letter.')
                 col_raw = input(col_text)
-            else:
-                col_set = True
-
-        while col < 0 or col > 4:
-            print(f'You entered {col_raw.upper()}, which '
-                  'is not a valid column.')
-            col_raw = input(col_text)
-            col = ord(col_raw.lower()) - 97
 
         if self.grid_marks[row][col] != ' ':
             print('A mark is already in place, please select a different'
