@@ -117,12 +117,12 @@ class Grid():
             won, returning True in either case
             """
             if self.player == 0:
-                print(f'{play_val.player_1_username} wins!')
+                print(f'{play_val.player_1_username} wins!\n')
                 play_val.update_score(play_val.player_1_username)
                 print(f'You now have a total of '
                       f'{play_val.player_1_wins} wins.\n')
             else:
-                print(f'{play_val.player_2_username} wins!')
+                print(f'{play_val.player_2_username} wins!\n')
                 play_val.update_score(play_val.player_2_username)
                 print(f'You now have a total of {play_val.player_2_wins}'
                       ' wins.\n')
