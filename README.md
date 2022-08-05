@@ -51,16 +51,18 @@
 
 ### User Manual
 <details><summary>Click here for the user manual</summary>
+
 #### Log in menu
-When users start the program, they land on the log in menu. Above the menu, and on every other 'page' of the program except for the actual game, an ASCII logo of the game is shown. Below the logo the user is presented with two options.
+When users start the program, they land on the 'Log in' menu. Above the menu, and on every other 'page' of the program except for the actual game, an ASCII logo of the game is shown. Below the logo the user is presented with three options.
 Operation: Input a numeric value and press the enter key.
 1. Log in
 2. Create new account
+3. Quit game
 
-If the user at any point in the program or game enters a value that does not correspond to the options available, they will receive feedback of what they entered and are reminded of the available options.
+If the user at any point in the program or game enters a value that does not correspond to the options available, they will receive feedback of what they entered and are reminded of the available options. They will then be able to provide input again until a valid option has been chosen.
 
 #### Log in
-If option 1 is selected from the log in menu, the users will be asked to enter the email addresses they used to create an account. It will first ask player 1 to enter their email address and the player 2. It doesn't matter who logs in first as a random player will get the first turn each game.
+If option 1 is selected from the 'Log in' menu, the users will be asked to enter the email addresses they used to create an account. It will first ask player 1 to enter their email address and the player 2. It doesn't matter who logs in first as a random player will get the first turn each game.
 
 Each email address is validated, first by checking if it follows the format of 'name@email.com' and second by looking up the email address in the database (Google Sheets file). 
 If the email address doesn't follow the correct format, users will be given feedback, e.g. 'It must have exactly one @-sign'. If they enter the correct format but the email address is not registered, they will be presented with two options.
@@ -68,19 +70,67 @@ Operation: Input a numeric value and press the enter key.
 1. Try different email address
 2. Create new account
 
-If option 1 is selected, the log in process is repeated. If option 2 is chosen, users will be able to create a new account, described below.
+If option 1 is selected, the log in process is repeated. If option 2 is chosen, users will be able to create a new account.
+
+If the log in was successful, the users will be taken to the 'Main' menu.
 
 #### Create new account
-If option 2 is selected in either the log in menu or after a failed log in, users will be taken here. 
+If option 2 is selected in either the 'Log in' menu or after a failed log in, users will be able to create a new account.
 
-Player 1 will be asked to provide a username for their account, which is validated: The username has to be between 2 to 20 characters long can only contain letters and digits - no special characters are allowed. After the validation, the username will be compared to the existing usernames in the database (Google Sheets file) and if a match is found, the player will be informed and has to provide a new username.
+The first user, player 1, will be asked to provide a username for their account, which is validated: The username has to be between 2 to 20 characters long can only contain letters and digits - no special characters are allowed. After the validation, the username will be compared to the existing usernames in the database (Google Sheets file) and if a match is found, the player will be informed and has to provide a new username.
 
 Then, player 1 will be asked to provide an email address for their account, which is also validated: the emaill address has to follow the format of 'name@email.com'. After the validation, the email address will be compared to the existing email addresses in the database (Google Sheets file) and if a match is found, the player will be informed and has to provide a new email address.
 
-After player 1 has created their account, player 2 will be presented with two options.
+After player 1 has created their account, the second user, player 2, will be presented with two options.
 Operation: Input a numeric value and press the enter key.
 1. Create new account
 2. Already have an account, go to log in menu
+
+If option 1 is selected, player 2 will go through the same process as player 1 did, except that the player will be taken to the 'Log in' menu after their account is created. If option 2 is selected, they will be taken to the log in menu.
+
+#### Main menu
+After player 1 and player 2 have logged in they land on the 'Main' menu. Here they will be presented with four options.
+Operation: Input a numeric value and press the enter key.
+1. Start the game
+2. Read game instructions
+3. View win count
+4. Log out
+
+#### Game instructions
+If option 2 is selected, the game instructions will be displayed. The players will be shown the Tic-Tac-Toe grid and explained how to place a mark down on the grid. After the instructions have been displayed, they will be taken back to the 'Main' menu.
+Operation: Input any key and press the enter key.
+
+#### View win count
+If option 3 is selected from the 'Main' menu, the win count of both players will be displayed. The players will then return to the 'Main' menu.
+Operation: Input any key and press the enter key.
+
+#### The game
+If option 1 is selected from the 'Main' or 'Play again' menu, the players will be taken to the game. As mentioned before, a random player will be picked to have the first turn at the start of each game. 
+
+The player will be asked to select a row number, ranging from 1 to 5. Once a row number is selected, the player will be asked to select a column letter, ranging from A to E. The selected position will then be validated to see if the position is empty or if another mark is already in place. If there is another mark in place, the player will be informed about this and prompted to select a new row number and column letter. If the position is empty, the mark will be placed and the players' turn ends. Now the other player will be able to place a mark on the grid.
+
+if the player provides invalid input, like entering a string as the row number, the player will receive feedback of what they've entered and informed what they did wrong. They will then be able to provide input again until a valid option has been chosen. 
+
+The game ends when one of the players has placed 4 consecutive, uninterrupted marks in a row, column or diagonal. Since the game has a 5x5 grid, there are multiple ways to achieve this. A message will be displayed to inform the players who won, displaying the winners' updated total amount of wins. The game then ends.
+
+If neither players are able to secure a win before the grid is full, a message will be displayed to inform the players that the game is a tie. The game then ends.
+
+After the game has ended, the players will be brought to the 'Play again' menu.
+Operation: Input any key and press the enter key.
+
+#### Play again menu
+After a game has ended, no matter the outcome, players will land on the 'Play again' menu. Here they will be presented with three options.
+Operation: Input a numeric value and press the enter key.
+1. Play again
+2. Main menu
+3. Log out
+4. Quit game
+
+#### Log out
+If option 4 is selected on the 'Main' menu or option 3 on the 'Play again' menu, the players will be logged out and taken to the 'Log in' menu.
+
+#### Quit game
+If option 3 is selected on the 'log in' menu or option 4 on the 'Play again' menu, a thank you message will be printed and the program will exit.
 
 </details>
 
