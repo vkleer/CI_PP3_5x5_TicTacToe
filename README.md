@@ -64,7 +64,7 @@ If the user at any point in the program or game enters a value that does not cor
 #### Log in
 If option 1 is selected from the 'Log in' menu, the users will be asked to enter the email addresses they used to create an account. It will first ask player 1 to enter their email address and the player 2. It doesn't matter who logs in first as a random player will get the first turn each game.
 
-Each email address is validated, first by checking if it follows the format of 'name@email.com' and second by looking up the email address in the database (Google Sheets file). 
+Each email address is validated, first by checking if it follows the format of 'name@example.com' and second by looking up the email address in the database (Google Sheets file). 
 If the email address doesn't follow the correct format, users will be given feedback, e.g. 'It must have exactly one @-sign'. If they enter the correct format but the email address is not registered, they will be presented with two options.
 Operation: Input a numeric value and press the enter key.
 1. Try different email address
@@ -79,7 +79,7 @@ If option 2 is selected in either the 'Log in' menu or after a failed log in, us
 
 The first user, player 1, will be asked to provide a username for their account, which is validated: The username has to be between 2 to 20 characters long can only contain letters and digits - no special characters are allowed. After the validation, the username will be compared to the existing usernames in the database (Google Sheets file) and if a match is found, the player will be informed and has to provide a new username.
 
-Then, player 1 will be asked to provide an email address for their account, which is also validated: the emaill address has to follow the format of 'name@email.com'. After the validation, the email address will be compared to the existing email addresses in the database (Google Sheets file) and if a match is found, the player will be informed and has to provide a new email address.
+Then, player 1 will be asked to provide an email address for their account, which is also validated: the emaill address has to follow the format of 'name@example.com'. After the validation, the email address will be compared to the existing email addresses in the database (Google Sheets file) and if a match is found, the player will be informed and has to provide a new email address.
 
 After player 1 has created their account, the second user, player 2, will be presented with two options.
 Operation: Input a numeric value and press the enter key.
@@ -175,9 +175,17 @@ A flowchart has been created to display the structure and logic of the program.
 
 ### Libraries
 
-## Built-in Libraries
+## Built-in Python Libraries
+- **os** is used to clear the terminal 
+- **sys** is used to to exit the program
+- **random** is used to change from player 1 to player 2 and vice versa
+- [**unittest**](https://docs.python.org/3/library/unittest.html) is used to create automated tests for player_validation.py
+- [**patch**](https://docs.python.org/3/library/unittest.mock.html#unittest.mock.patch) from [**unittest.mock**](https://docs.python.org/3/library/unittest.mock.html) is used to to test my register_players and log_in functions from player_validation.py, which both require multiple inputs in a row to complete the test
 
-## THird Party Libraries
+## Third Party Libraries
+- [**gpread**](https://docs.gspread.org/en/latest/) is used to get, set and delete data in my Google Sheets file. The Google Sheets file contains the usernames, email addresses and win counts for each player that has registered.
+- [**Credentials**](https://google-auth.readthedocs.io/en/master/reference/google.oauth2.credentials.html?highlight=credentials) from [**google.oauth2.service_account**](https://google-auth.readthedocs.io/en/master/) is used for the authentification that's required to connect to my Google service account to the Google Drive and Google Sheets API. A service account key has been created in JSON with the name creds.json. The connection is set up in player_validation.py. To keep the creds.json file safe, it is put in the .gitignore file to prevent it from being pushed to GitHub. As the project is deployed on Heroku, the contents of the creds.json file have been stored in a Config Var inside the Heroku application settings to make the connection work.
+- [**email_validator**](https://pypi.org/project/email-validator/) is used to validate the players' email address when entered on registration and log in. It must follow the format of 'name@example.com'.
 
 ## Features
 The website has a total of x features:
