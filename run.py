@@ -53,8 +53,7 @@ def quit_game():
     the game and quits the program
     """
     clear_and_logo()
-    print('Thanks for playing.')
-    print('Hope to see you again soon!')
+    print('Thanks for playing - we hope to see you again soon!')
     sys.exit()
 
 
