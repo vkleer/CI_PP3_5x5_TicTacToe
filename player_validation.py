@@ -1,7 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from email_validator import validate_email, EmailNotValidError
-from run import clear_and_logo
+from run import clear_and_logo, continue_input
 
 # Constant variables SCOPE, CREDS, SCOPED_CREDS and GSPREAD_CLIENT taken from
 # the love_sandwiches project walkthrough project by Code Institute
@@ -128,7 +128,7 @@ def register_players():
             WORKSHEET.append_row(player_data[i])
             print('Registration complete, your account has been successfully '
                   f'created. Thanks {player_username}.\n')
-        input('Press any key to continue.\n')
+        continue_input()
         registration_complete = True
 
 

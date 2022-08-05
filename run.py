@@ -31,8 +31,39 @@ def game_logo():
 
 
 def clear_and_logo():
+    """
+    Calls the clear_screen and game_logo functions
+    """
     clear_screen()
     game_logo()
+
+
+def log_out():
+    """
+    Calls the clear_and_logo function and takes the players to the
+    'log in' menu
+    """
+    clear_and_logo()
+    menu('log in')
+
+
+def quit_game():
+    """
+    Calls the clear_and_logo function, thanks the players for playing
+    the game and quits the program
+    """
+    clear_and_logo()
+    print('Thanks for playing.')
+    print('Hope to see you again soon!')
+    sys.exit()
+
+
+def continue_input():
+    """
+    Pauses the current interaction until any key has been entered and 
+    the enter key has been pressed
+    """
+    input('Press any key to continue.\n')
 
 
 class Grid():
@@ -97,7 +128,7 @@ class Grid():
                 print(f'You now have a total of {play_val.player_2_wins}'
                       ' wins.\n')
 
-            input('Press any key to continue.\n')
+            continue_input()
             return True
 
         def check_rows() -> bool:
@@ -179,7 +210,7 @@ class Grid():
 
             if marks_used == total_marks:
                 print("Grid is full, but no one won. It's a tie!")
-                input('Press any key to continue.\n')
+                continue_input()
                 return True
 
         # If a player has won the game, return True
@@ -262,18 +293,6 @@ class Grid():
             else:
                 self.grid_marks[row][col] = 'X'
                 self.change_player()
-
-
-def log_out():
-    clear_and_logo()
-    menu('log in')
-
-
-def quit_game():
-    clear_and_logo()
-    print('Thanks for playing.')
-    print('Hope to see you again soon!')
-    sys.exit()
 
 
 def menu(page) -> str:
@@ -380,7 +399,7 @@ def menu(page) -> str:
                   f'{play_val.player_1_wins} wins.\n')
             print(f'{play_val.player_2_username} has a total of '
                   f'{play_val.player_2_wins} wins.\n')
-            input('Press any key to continue.\n')
+            continue_input()
             menu('main')
         if page == 'play again':
             log_out()
@@ -402,7 +421,7 @@ def game_instructions():
     print('in a row, either horizontally, vertically or diagonally. If '
           'no one is able to get 4 marks in a')
     print('row, then the game is a draw.\n')
-    input('Press any key to continue.\n')
+    continue_input()
     # Clear screen in between instructions
     clear_and_logo()
     print('To play the game, you first have to pick a row, then a column.'
@@ -418,14 +437,14 @@ def game_instructions():
     grid.print_grid()
     # Reset the board mark on row 2, column D back to a space
     grid_marks[1][3] = ' '
-    input('Press any key to continue.\n')
+    continue_input()
     # Clear screen in between instructions
     clear_and_logo()
     print("You cannot overwrite another players' mark, trying to do so "
           "will result in the game asking")
     print('you to pick a different location instead. Good luck and have '
           'fun playing!\n')
-    input('Press any key to continue.\n')
+    continue_input()
     del grid
     clear_screen()
     menu('main')
