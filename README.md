@@ -188,10 +188,48 @@ A flowchart has been created to display the structure and logic of the program.
 - [**email_validator**](https://pypi.org/project/email-validator/) is used to validate the players' email address when entered on registration and log in. It must follow the format of 'name@example.com'.
 
 ## Features
-The website has a total of x features:
+The website has a total of 7 main features:
 
-### Feature
-- Feature description
+### Game logo
+- Logo created from ASCII characters 
+- Is present everywhere throughout the program except during the game to make room for the 5x5 grid
+-Covers user story
+
+### Log in menu
+- Presents users with the option to log in, create an account or quit the game
+- Covers user story
+
+### Create new account
+- Allows users to create a new account for the game
+- Asks for a username, which has to be unique and can only contain letters or digits
+- Asks for an email address, which also has to be unique and must follow the format of 'name@example.com'
+- Validates the username and email address, providing feedback if input was invalid. User will be prompted to enter a new username of email address if invalid
+- After validation, the user will be asked to confirm their username and email address respectively. This is done to minimize user errors.
+ - Covers user story
+
+### Main menu
+- Presents users with the option to start the game, read the game instructions, view each players' win count or log out.
+- Covers user story
+
+### Game instructions
+- Displays the game instructions in a clear and easy to follow format
+- Takes users back to the main menu after they've gone through the game instructions
+- Covers user story
+
+### Game
+- A random player is picked to have the first turn at the start of each game
+- The players' name will be displayed if it's their turn
+- The game grid is printed when the game starts and is updated after each turn
+- Players are asked to select a row number and column letter to place a mark on the grid
+- Validates the row number and column letter, providing feedback if input was invalid. User will be prompted to enter a new row number or column letter if invalid
+- Provides feedback when a game is won or a tie.
+    - If a game is won, the player will receive a congratulatory message with their name and their new win count
+    - If the game is a tie, a message will be displayed to inform the players and take them back to the main menu
+- Covers user story
+
+### Input validation
+- All the input throughout the program is validated. If wrong input was entered the user will receive useful feedback to understand what went wrong and will be prompted to try again
+- Covers user story
 
 ## Testing
 
