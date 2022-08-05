@@ -179,6 +179,7 @@ class Grid():
 
             if marks_used == total_marks:
                 print("Grid is full, but no one won. It's a tie!")
+                input('Press any key to continue.\n')
                 return True
 
         # If a player has won the game, return True
