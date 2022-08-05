@@ -155,6 +155,11 @@ If option 3 is selected on the 'log in' menu or option 4 on the 'Play again' men
 ## Technical Design
 
 ### Flowchart
+A flowchart has been created to display the structure and logic of the program.
+
+<details><summary>Flowchart</summary>
+    <img src="docs/5x5-tictactoe-flowchart.jpeg">
+</details>
 
 ### Data Models
 
