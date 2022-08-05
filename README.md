@@ -317,6 +317,17 @@ The website has a total of 8 main features:
 ## Testing
 
 ### Python Validation
+The Python code has been validated using [Pep8 Validation Service](http://pep8online.com/) - no errors or warnings were found.
+
+<details><summary>Screenshot of run.py PEP8 Validation</summary>
+    <img src="docs/features/validation/run-pep8-validation.JPG">
+</details>
+<details><summary>Screenshot of player_validation.py PEP8 Validation</summary>
+    <img src="docs/features/validation/player-validation-pep8-validation.JPG">
+</details>
+<details><summary>Screenshot of test_player_validation.py PEP8 Validation</summary>
+    <img src="docs/features/validation/test-player-validation-pep8-validation.JPG">
+</details>
 
 ### Manual Testing
 
