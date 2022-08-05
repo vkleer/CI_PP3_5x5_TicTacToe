@@ -260,6 +260,20 @@ class Grid():
                 self.change_player()
 
 
+def log_out():
+    clear_screen()
+    game_logo()
+    menu('log in')
+
+
+def quit_game():
+    clear_screen()
+    game_logo()
+    print('Thanks for playing.')
+    print('Hope to see you again soon!')
+    sys.exit()
+
+
 def menu(page) -> str:
     """
     Shows a menu that changes depending on what parameter 'page' is set to.
@@ -267,10 +281,8 @@ def menu(page) -> str:
     new one or log out.
     When set to 'main', allow users to start the game, read the game
     instructions, view their win count or log out.
-    When set to 'game instructions', allow users to start the game or go 
-    back to the 'main' menu.
     When set to 'play again', allow users to play another game, view their 
-    wint ocunt, log out or quit the game.
+    wint count, log out or quit the game.
     @param page: string
     """
     clear_screen()
@@ -298,15 +310,9 @@ def menu(page) -> str:
         )
         menu_input = input(menu_options)
 
-    if page != 'main' and page != 'log in':
-        while menu_input != '1' and menu_input != '2':
-            clear_screen()
-            game_logo
-            print(f'\nYou entered {menu_input}, which is not a valid '
-                  'option.\n')
-            print('Please select one of the two options:')
-            menu_input = input(menu_options)
-    else:
+    # The 'log in' menu only has three options, so the user will stay in
+    # the while loop until one of the three options has been selected
+    if page == 'log in':
         while (
             menu_input != '1' and menu_input != '2' and menu_input != '3'
         ):
@@ -315,6 +321,20 @@ def menu(page) -> str:
             print(f'\nYou entered {menu_input}, which is not a valid '
                   'option.\n')
             print('Please select one of the three options:')
+            menu_input = input(menu_options)
+    # The 'main' and 'play again' menus both have four options, so the
+    # user will stay in  the while loop until one of the four options has
+    # been selected
+    else:
+        while (
+            menu_input != '1' and menu_input != '2' and
+            menu_input != '3' and menu_input != '4'
+        ):
+            clear_screen()
+            game_logo
+            print(f'\nYou entered {menu_input}, which is not a valid '
+                  'option.\n')
+            print('Please select one of the four options:')
             menu_input = input(menu_options)
 
     if menu_input == '1':
@@ -352,8 +372,10 @@ def menu(page) -> str:
         elif page == 'play again':
             clear_screen()
             game_logo()
-            menu('log in')
+            menu('main')
     elif menu_input == '3':
+        if page == 'log in':
+            quit_game()
         if page == 'main':
             clear_screen()
             game_logo()
@@ -363,12 +385,13 @@ def menu(page) -> str:
                   f'{play_val.player_2_wins} wins.\n')
             input('Press any key to continue.\n')
             menu('main')
+        if page == 'play again':
+            log_out()
+    elif menu_input == '4':
+        if page == 'main':
+            log_out()
         elif page == 'play again':
-            clear_screen()
-            game_logo()
-            print('Thanks for playing.')
-            print('Hope to see you again soon!')
-            sys.exit()
+            quit_game()         
 
 
 def game_instructions():
