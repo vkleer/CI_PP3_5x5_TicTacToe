@@ -30,6 +30,11 @@ def game_logo():
     print('')
 
 
+def clear_and_logo():
+    clear_screen()
+    game_logo()
+
+
 class Grid():
     def __init__(self):
         # Create a list of lists containing all possible mark locations on the
@@ -261,14 +266,12 @@ class Grid():
 
 
 def log_out():
-    clear_screen()
-    game_logo()
+    clear_and_logo()
     menu('log in')
 
 
 def quit_game():
-    clear_screen()
-    game_logo()
+    clear_and_logo()
     print('Thanks for playing.')
     print('Hope to see you again soon!')
     sys.exit()
@@ -316,8 +319,7 @@ def menu(page) -> str:
         while (
             menu_input != '1' and menu_input != '2' and menu_input != '3'
         ):
-            clear_screen()
-            game_logo
+            clear_and_logo()
             print(f'\nYou entered {menu_input}, which is not a valid '
                   'option.\n')
             print('Please select one of the three options:')
@@ -330,8 +332,7 @@ def menu(page) -> str:
             menu_input != '1' and menu_input != '2' and
             menu_input != '3' and menu_input != '4'
         ):
-            clear_screen()
-            game_logo
+            clear_and_logo()
             print(f'\nYou entered {menu_input}, which is not a valid '
                   'option.\n')
             print('Please select one of the four options:')
@@ -362,23 +363,20 @@ def menu(page) -> str:
             menu('main')
     elif menu_input == '2':
         if page == 'main':
-            clear_screen()
-            game_logo()
+            clear_and_logo()
             game_instructions()
         elif page == 'log in':
             clear_screen()
             play_val.register_players()
             menu('log in')
         elif page == 'play again':
-            clear_screen()
-            game_logo()
+            clear_and_logo()
             menu('main')
     elif menu_input == '3':
         if page == 'log in':
             quit_game()
         if page == 'main':
-            clear_screen()
-            game_logo()
+            clear_and_logo()
             print(f'{play_val.player_1_username} has a total of '
                   f'{play_val.player_1_wins} wins.\n')
             print(f'{play_val.player_2_username} has a total of '
@@ -407,8 +405,7 @@ def game_instructions():
     print('row, then the game is a draw.\n')
     input('Press any key to continue.\n')
     # Clear screen in between instructions
-    clear_screen()
-    game_logo()
+    clear_and_logo()
     print('To play the game, you first have to pick a row, then a column.'
           ' For example, if you are playing')
     print('with the X marks, picking row 2 and column D would look like '
@@ -424,8 +421,7 @@ def game_instructions():
     grid_marks[1][3] = ' '
     input('Press any key to continue.\n')
     # Clear screen in between instructions
-    clear_screen()
-    game_logo()
+    clear_and_logo()
     print("You cannot overwrite another players' mark, trying to do so "
           "will result in the game asking")
     print('you to pick a different location instead. Good luck and have '
