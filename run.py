@@ -248,7 +248,7 @@ class Grid():
                 print(f'You entered {row}, which is not a number.\n')
                 row = input(row_text)
             else:
-                if 0 < int(row) > 4:
+                if 0 < int(row) > 5:
                     print(f'You entered {row}, which is not a valid row.\n')
                     row_set = False
                     row = input(row_text)
@@ -274,7 +274,7 @@ class Grid():
                 print(f'You entered {col_raw}, which is not a letter.\n')
                 col_raw = input(col_text)
             else:
-                if col < 0 or col > 4:
+                if col < 0 or col > 5:
                     print(f'You entered {col_raw.upper()}, which '
                           'is not a valid column.\n')
                     col_set = False
