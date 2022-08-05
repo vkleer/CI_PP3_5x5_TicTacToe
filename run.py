@@ -440,9 +440,8 @@ def game_instructions():
     # Clear screen in between instructions
     clear_and_logo()
     print("You cannot overwrite another players' mark, trying to do so "
-          "will result in the game asking")
-    print('you to pick a different location instead. Good luck and have '
-          'fun playing!\n')
+          "will result in the game asking you to pick a different "
+          'location instead. Good luck and have fun playing!\n')
     continue_input()
     del grid
     clear_screen()
