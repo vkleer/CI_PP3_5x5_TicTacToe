@@ -263,42 +263,42 @@ class Grid():
 def menu(page) -> str:
     """
     Shows a menu that changes depending on what parameter 'page' is set to.
-    When set to 'log in', allow users to log in to their account or to
-    create a new one.
-    When set to 'main menu', allow users to start the game, read the game
-    instructions or view their total amount of wins.
+    When set to 'log in', allow users to log in to their account, create a
+    new one or log out.
+    When set to 'main', allow users to start the game, read the game
+    instructions, view their win count or log out.
     When set to 'game instructions', allow users to start the game or go 
-    back to the 'main menu'.
-    When set to 'play again', allow users to play another game, log out or 
-    quit the game.
+    back to the 'main' menu.
+    When set to 'play again', allow users to play another game, view their 
+    wint ocunt, log out or quit the game.
     @param page: string
     """
     clear_screen()
     if page == 'log in':
         game_logo()
-        print('Welcome! Would you like to log in or create a new account?')
-        menu_options = '1. Log in\n2. Create new account\n'
-        menu_input = input(menu_options)
-    elif page == 'main menu':
-        game_logo()
-        print('Would you like to start the game, read the game '
-              'instructions or view your win count?')
-        menu_options = (
-            '1. Start the game\n2. Read game instructions\n3. View win count\n'
+        print(
+            'Welcome to 5x5 Tic-Tac-Toe! Please select one of the three '
+            'options:'
         )
+        menu_options = '1. Log in\n2. Create new account\n3. Quit game\n'
         menu_input = input(menu_options)
-    elif page == 'game instructions':
+    elif page == 'main':
         game_logo()
-        print('Would you like to start the game or go back to the main menu?')
-        menu_options = '1. Start the game\n2. Back to main menu\n'
+        print('Please select one of the four options:')
+        menu_options = (
+            '1. Start the game\n2. Game instructions\n3. View win count\n'
+            '4. Log out\n'
+        )
         menu_input = input(menu_options)
     elif page == 'play again':
         game_logo()
-        print('Please select one of the three options:')
-        menu_options = '1. Play again\n2. Log out\n3. Quit game\n'
+        print('Please select one of the four options:')
+        menu_options = (
+            '1. Play again\n2. Main menu\n3. Log out\n4. Quit game\n'
+        )
         menu_input = input(menu_options)
 
-    if page != 'play again' and page != 'main menu':
+    if page != 'main' and page != 'log in':
         while menu_input != '1' and menu_input != '2':
             clear_screen()
             game_logo
@@ -339,16 +339,12 @@ def menu(page) -> str:
         else:
             clear_screen()
             play_val.log_in()
-            menu('main menu')
+            menu('main')
     elif menu_input == '2':
-        if page == 'main menu':
+        if page == 'main':
             clear_screen()
             game_logo()
             game_instructions()
-        elif page == 'game instructions':
-            clear_screen()
-            game_logo()
-            menu('main menu')
         elif page == 'log in':
             clear_screen()
             play_val.register_players()
@@ -358,7 +354,7 @@ def menu(page) -> str:
             game_logo()
             menu('log in')
     elif menu_input == '3':
-        if page == 'main menu':
+        if page == 'main':
             clear_screen()
             game_logo()
             print(f'{play_val.player_1_username} has a total of '
@@ -366,7 +362,7 @@ def menu(page) -> str:
             print(f'{play_val.player_2_username} has a total of '
                   f'{play_val.player_2_wins} wins.\n')
             input('Press any key to continue.\n')
-            menu('main menu')
+            menu('main')
         elif page == 'play again':
             clear_screen()
             game_logo()
@@ -414,7 +410,7 @@ def game_instructions():
     input('Press any key to continue.\n')
     del grid
     clear_screen()
-    menu('game instructions')
+    menu('main')
 
 
 def main():
