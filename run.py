@@ -214,6 +214,8 @@ class Grid():
 
         # If a player has won the game, return True
         if check_rows() or check_columns() or check_diagonals() or full_grid():
+            # Pick a random player to start the next game
+            self.player = random.randint(0, 1)
             return True
         # If the game is not a tie and no player has won the game yet, return
         # False and keep the game running
@@ -274,7 +276,7 @@ class Grid():
                 print(f'You entered {col_raw}, which is not a letter.\n')
                 col_raw = input(col_text)
             else:
-                if col < 0 or col > 5:
+                if col < 0 or col > 4:
                     print(f'You entered {col_raw.upper()}, which '
                           'is not a valid column.\n')
                     col_set = False
@@ -282,6 +284,7 @@ class Grid():
                 else:
                     col_set = True
 
+        print(col)
         if self.grid_marks[row][col] != ' ':
             print('A mark is already in place, please select a different'
                   ' location.\n')
