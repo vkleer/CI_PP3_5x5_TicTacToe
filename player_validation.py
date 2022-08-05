@@ -1,7 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from email_validator import validate_email, EmailNotValidError
-from run import clear_screen, game_logo
+from run import clear_and_logo
 
 # Constant variables SCOPE, CREDS, SCOPED_CREDS and GSPREAD_CLIENT taken from
 # the love_sandwiches project walkthrough project by Code Institute
@@ -30,8 +30,7 @@ def register_players():
 
     registration_complete = False
     while not registration_complete:
-        clear_screen()
-        game_logo()
+        clear_and_logo()
         for i in range(2):
             if i == 1:
                 confirm_input_bool = False
@@ -43,14 +42,12 @@ def register_players():
 
                     if new_account == '1':
                         confirm_input_bool = True
-                        clear_screen()
-                        game_logo()
+                        clear_and_logo()
                     elif new_account == '2':
                         registration_complete = True
                         return
                     else:
-                        clear_screen()
-                        game_logo()
+                        clear_and_logo()
                         print(f'You entered {new_account}, please enter '
                               'either 1 to confirm or 2 to cancel.')
 
@@ -64,8 +61,7 @@ def register_players():
 
                 if validate_player_username(player_username):
                     if not registered_value(player_username):
-                        clear_screen()
-                        game_logo()
+                        clear_and_logo()
 
                         confirm_input_bool = False
                         while not confirm_input_bool:
@@ -75,8 +71,7 @@ def register_players():
                             confirm_username = input('1. Confirm\n2. Cancel\n')
 
                             if confirm_username == '1':
-                                clear_screen()
-                                game_logo()
+                                clear_and_logo()
                                 confirm_input_bool = True
                                 username_set = True
                                 print(f'Great! Nice to meet you, '
@@ -85,13 +80,11 @@ def register_players():
                                 confirm_input_bool = True
                                 username_set = False
                             else:
-                                clear_screen()
-                                game_logo()
+                                clear_and_logo()
                                 print('Please enter either 1 to confirm or 2 '
                                       'to cancel.')
                     else:
-                        clear_screen()
-                        game_logo()
+                        clear_and_logo()
                         print(f'The username {player_username} is already in '
                               'use. Please try a different one.')
                 else:
@@ -106,8 +99,7 @@ def register_players():
 
                 if validate_player_email(player_email):
                     if not registered_value(player_email):
-                        clear_screen()
-                        game_logo()
+                        clear_and_logo()
 
                         confirm_input_bool = False
                         while not confirm_input_bool:
@@ -121,20 +113,17 @@ def register_players():
                                 confirm_input_bool = True
                                 email_set = False
                             else:
-                                clear_screen()
-                                game_logo()
+                                clear_and_logo()
                                 print('Please enter either 1 to confirm or 2 '
                                       'to cancel.')
                     else:
-                        clear_screen()
-                        game_logo()
+                        clear_and_logo()
                         print(f'The email address {player_email} is already '
                               'in use. Please try a different one.')
                 else:
                     print(f'You entered {player_email}.')
 
-            clear_screen()
-            game_logo()
+            clear_and_logo()
             player_data[i] = [player_username, player_email, 0]
             WORKSHEET.append_row(player_data[i])
             print('Registration complete, your account has been successfully '
@@ -151,12 +140,10 @@ def validate_player_username(username):
     """
     try:
         if len(username) <= 2 or len(username) > 20:
-            clear_screen()
-            game_logo()
+            clear_and_logo()
             print('Username must be between 2 to 20 characters long.')
         elif not username.isalnum():
-            clear_screen()
-            game_logo()
+            clear_and_logo()
             print('Username can only contain letters or digits.')
         else:
             return True
@@ -175,8 +162,7 @@ def validate_player_email(email):
         validate_email(email)
         return True
     except EmailNotValidError as e:
-        clear_screen()
-        game_logo()
+        clear_and_logo()
         print(str(e))
 
 
@@ -200,8 +186,7 @@ def log_in():
     login_complete = False
     while not login_complete:
         for i in range(2):
-            clear_screen()
-            game_logo()
+            clear_and_logo()
             if i == 0:
                 print(f'Player {i + 1}, please enter your email address '
                       'to log in to the game.')
@@ -224,13 +209,11 @@ def log_in():
                                 player_2_email = player_email
                                 get_email = True
                             else:
-                                clear_screen()
-                                game_logo()
+                                clear_and_logo()
                                 print(f'Cannot be the same email as Player 1'
                                       f' {player_1_username}.')
                     else:
-                        clear_screen()
-                        game_logo()
+                        clear_and_logo()
                         print(f'{player_email} is not registered, do you '
                               'want to try different email address or '
                               'create a new account?')
@@ -241,8 +224,7 @@ def log_in():
                         elif try_again == '2':
                             register_players()
                         else:
-                            clear_screen()
-                            game_logo()
+                            clear_and_logo()
                             print(f'You entered {try_again}, please enter '
                                   'either 1 to confirm or 2 to cancel: ')
 
@@ -263,8 +245,7 @@ def log_in():
                 player_2_email = player_email
                 login_complete = True
 
-    clear_screen()
-    game_logo()
+    clear_and_logo()
     print(f'Welcome back, {player_2_username}!\n')
     input('You are now both logged in - press any key to continue to '
           'the game.\n')
