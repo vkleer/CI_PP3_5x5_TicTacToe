@@ -88,7 +88,7 @@ def register_players():
                         print(f'The username {player_username} is already in '
                               'use. Please try a different one.')
                 else:
-                    print(f'You entered {player_username}.')
+                    print(f'You entered {player_username}.\n')
 
             # Check if player added a valid email address and if the user wants
             # to use this specific email address to register
@@ -121,7 +121,7 @@ def register_players():
                         print(f'The email address {player_email} is already '
                               'in use. Please try a different one.')
                 else:
-                    print(f'You entered {player_email}.')
+                    print(f'You entered {player_email}.\n')
 
             clear_and_logo()
             player_data[i] = [player_username, player_email, 0]
@@ -141,10 +141,10 @@ def validate_player_username(username):
     try:
         if len(username) <= 2 or len(username) > 20:
             clear_and_logo()
-            print('Username must be between 2 to 20 characters long.')
+            print('Username must be between 2 to 20 characters long.\n')
         elif not username.isalnum():
             clear_and_logo()
-            print('Username can only contain letters or digits.')
+            print('Username can only contain letters or digits.\n')
         else:
             return True
     except TypeError:
@@ -163,7 +163,7 @@ def validate_player_email(email):
         return True
     except EmailNotValidError as e:
         clear_and_logo()
-        print(str(e))
+        print(f'{str(e)}\n')
 
 
 def log_in():
