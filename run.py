@@ -91,15 +91,14 @@ class Grid():
                 play_val.update_score(play_val.player_1_username)
                 print(f'You now have a total of '
                       f'{play_val.player_1_wins} wins.\n')
-                input('Press any key to continue.\n')
-                return True
             else:
                 print(f'{play_val.player_2_username} wins!')
                 play_val.update_score(play_val.player_2_username)
                 print(f'You now have a total of {play_val.player_2_wins}'
                       ' wins.\n')
-                input('Press any key to continue.\n')
-                return True
+
+            input('Press any key to continue.\n')
+            return True
 
         def check_rows() -> bool:
             """
