@@ -188,7 +188,7 @@ A flowchart has been created to display the structure and logic of the program.
 - [**email_validator**](https://pypi.org/project/email-validator/) is used to validate the players' email address when entered on registration and log in. It must follow the format of 'name@example.com'.
 
 ## Features
-The website has a total of 8 main features:
+The website has a total of 9 main features:
 
 ### Game logo
 - Logo created from ASCII characters 
@@ -204,6 +204,7 @@ The website has a total of 8 main features:
 - Validates the email address, providing feedback if input was invalid.
     - If the input follows the correct format, compare the entered email address to the list of email addresses in the database (Google Sheets file)
         - If the email address is not registered, present the player with the option to try a different email address or create a new account
+- After successfully logging in, each player is greeted by their username
 - Covers user story **3** and **10**
 
 ### Create new account
@@ -224,6 +225,11 @@ The website has a total of 8 main features:
 - Displays the game instructions in a clear and easy to follow format
 - Takes users back to the main menu after they've gone through the game instructions
 - Covers user story **1**
+
+### View win count
+- Displays each players total amount of wins
+- Takes players back to the main menu after entering any key and pressing the enter key
+- Covers user story **6**
 
 ### Game
 - A random player is picked to have the first turn at the start of each game
