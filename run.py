@@ -66,6 +66,9 @@ def continue_input():
 
 
 class Grid():
+    """
+    Creates an instance of Grid class
+    """
     def __init__(self):
         # Create a list of lists containing all possible mark locations on the
         # grid
