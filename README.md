@@ -39,8 +39,6 @@
     1. [Python Validation](#python-validation)
     2. [Manual Testing - User Stories](#manual-testing---user-stories)
     3. [Automated Testing](#automated-testing)
-        1. [Testing the validate_player_username and validate_player_email functions](#testing-the-validateplayerusername-and-validateplayeremail-functions)
-        2. [Testing the log_in and register_players functions](#testing-the-login-and-registerplayers-functions)
 8. [Bugs](#Bugs)
 9. [Deployment](#deployment)
     1. [GitHub](#github)
