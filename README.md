@@ -325,7 +325,7 @@ The website has a total of 9 main features:
     - If the game is a tie, a message will be displayed to inform the players and take them back to the main menu
 - Covers user story **7**, **8**, **9** and **10**
 
-<details><summary>Screenshots of registration process</summary>
+<details><summary>Screenshots of game</summary>
     <img src="docs/features/game-1.JPG">
     <img src="docs/features/game-2.JPG">
     <img src="docs/features/game-3.JPG">
@@ -333,7 +333,7 @@ The website has a total of 9 main features:
     <img src="docs/features/game-5.JPG">
 </details>
 
-<details><summary>Screenshots of registration validation</summary>
+<details><summary>Screenshots of game validation</summary>
     <img src="docs/features/game-validation-1.JPG">
     <img src="docs/features/game-validation-2.JPG">
 </details>
@@ -357,7 +357,7 @@ The website has a total of 9 main features:
 The Python code has been validated using [Pep8 Validation Service](http://pep8online.com/) - no errors or warnings were found.
 
 <details><summary>Screenshot of run.py PEP8 Validation</summary>
-    <img src="docs/features/validation/run-pep8-validation.JPG">
+    <img src="docs/validation/run-pep8-validation.JPG">
 </details>
 <details><summary>Screenshot of player_validation.py PEP8 Validation</summary>
     <img src="docs/validation/player-validation-pep8-validation.JPG">
