@@ -332,18 +332,35 @@ The Python code has been validated using [Pep8 Validation Service](http://pep8on
 ### Manual Testing
 
 ### Automated Testing
+To challenge myself, I decided to incorporate automated testing into my project. I used the built-in unittest and unittest.mock libraries to achieve this. I tested multiple seperate functions.
 
-### Testing User Stories
-1. As a user, I want to be able to play the game on different difficulty levels
+#### Testing the validate_player_username and validate_player_email functions
+The validate_player_username and validate_player_email functions inside my player_validation.py file do exactly what their names suggest: they take a username or email address as an argument and return **True** if the format is valid. To test these I wrote a couple of simple unit tests by providing both valid and invalid input. 
 
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-| Feature name | Action  | Expected result | Works as expected |
+If the test input is supposed to be valid, **assertTrue** is used, returning **True** in the statement - if the input was supposed to be invalid, **assertEqual** was used, returning **None** in the statement
 
-<details><summary>Supporting Screenshots - User Story 1</summary>
-    <img src="docs/user-story-testing/user-story-01.png">
+<details><summary>Screenshot of validate_player_username and validate_player_email unit testing code</summary>
+    <img src="docs/testing/unit-test-input-validation-functions">
 </details>
 
+#### Testing the log_in and register_players functions
+The log_in function and register_players function inside my player_validation.py file required a more advanced method to be tested, since they both require multiple user inputs. This took me a while to get right, but in the end I solved it by importing **patch** from the **unittest.mock** library. 
+
+A patch decorator is used to access the built-in input function. The unit test is then declared, taking two parameters: self and mocked_input. The mocked_input is a **Mock** object - the side_effect function is called on this object, taking several string arguments. These arguments are iterated through when the unit test is called, providing input until the function has completed. 
+Both functions use the same technique. 
+
+<details><summary>Screenshot of log_in and register_players unit testing code</summary>
+    <img src="docs/testing/unit-test-input-validation-functions">
+</details>
+<details><summary>GIF of the unit tests being run</summary>
+    <img src="docs/testing/unit-testing.gif">
+</details>
+
+Since both functions don't return a value on completion, **assertEqual** is used, returning **None** in the statement.
+
+The register_players function asks player 1 for a username, then a username confirmation, then an email address, then an email address confirmation. It will then ask player 2 if they want to create an account as well or if they want to go to the login page. In the unit test I decided to create two test accounts.
+
+The log_in function asks for two email addresses to log in the players. After the test accounts have successfully logged in, the accounts are deleted using the delete_test_data function in my player_validation.py file.
 
 ## Bugs
 
