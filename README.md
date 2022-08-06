@@ -502,8 +502,20 @@ The log_in function asks for two email addresses to log in the players. After th
 
 | **Bug** | **Fix** |
 |-------------|------------|
-| Bug | Fix - [link to commit](link) |
-
+| Column input not validated correctly after ord function is called on it | Subtract 97 from the integer after the ord function is called instead of 96, to get an integer between 0 and 4 instead of 1 and 5. Indexing starts at 0, so this is important - [link to commit](https://github.com/vkleer/CI_PP3_5x5_TicTacToe/commit/9f213d5a9cfa2bc713f55580cc058ddaedcb8c4b) |
+| TypeError is raised when entering a 0 into column input | Create an if statement inside a while loop to check if the input is equal to 0. If not, break out of the while loop  - [link to commit](https://github.com/vkleer/CI_PP3_5x5_TicTacToe/commit/e3ce4bc8df05e0575c3d5aa0f562a9aa6bce9040) |
+| Wrong player is congratulated after winning game and an extra turn is given to this player | Create player_won function to check which player has won, calling it right after a mark is placed, thus congratulating the right player and ending the game - [link to commit](https://github.com/vkleer/CI_PP3_5x5_TicTacToe/commit/31552cfa3f92093f7f2b338ddb91125465e43acb) |
+| The game_instructions function doesn't work due to undefined object called grid | Create the undefined object before accessing its methods - [link to commit](https://github.com/vkleer/CI_PP3_5x5_TicTacToe/commit/f56b0ba298ff34bfc408a6cda7dd2c01825701a8) |
+| The game_instructions function doesn't work due to undefined object called grid | Create the undefined object before accessing its methods - [link to commit](https://github.com/vkleer/CI_PP3_5x5_TicTacToe/commit/f56b0ba298ff34bfc408a6cda7dd2c01825701a8) |
+| The update_score function does not update the score correctly | Define player_1_wins and player_2_wins variables as global variables - [link to commit](https://github.com/vkleer/CI_PP3_5x5_TicTacToe/commit/4130e03e216e99938f907a3771911dfad2bc1e8f) |
+| Players are sent to main menu after registering, crashing the game since they're not logged in | Set the correct argument for the menu function parameter - [link to commit](https://github.com/vkleer/CI_PP3_5x5_TicTacToe/commit/62e7aa1179f687a77271e6343e299dd0e7865126) |
+| Players are asked to log in twice in a row | Remove log_in function call inside register_players function as it's already being called from another function - [link to commit](https://github.com/vkleer/CI_PP3_5x5_TicTacToe/commit/897e721c836d9c60384c6eeb09885836fdab9ffe) |
+| Username validation error does not show | Remove clear_screen function call after validate_player_username function is being called - [link to commit](https://github.com/vkleer/CI_PP3_5x5_TicTacToe/commit/853a3885581c891d96c374532316407ee9dd54a6) |
+| Player 2 is forwarded to account creation when providing invalid input | Add while loop to check if invalid input is entered - [link to commit](https://github.com/vkleer/CI_PP3_5x5_TicTacToe/commit/ddbc015d8f7f0b4cd612f60b2d5acf2e9fc65c68) |
+| Game crashes when entering a string longer than 1 character into column input | Add try-except statement to catch TypeError - [link to commit](https://github.com/vkleer/CI_PP3_5x5_TicTacToe/commit/b65e389cc2d598711b7fd63c3eab0666975d6371) |
+| Game doesn't display message after it ends in a tie | Add input function call to pause the program until input is provided, giving players time to read message - [link to commit](https://github.com/vkleer/CI_PP3_5x5_TicTacToe/commit/d87b67fd6e77590b0af6b248d586ecfb24a2427a) |
+| Game crashes due to IndexError after setting column input | Change if statement that checks if column input number is smaller than 0 or higher than 5 to check if number is smaller than 0 or higher than 4 - [link to commit](https://github.com/vkleer/CI_PP3_5x5_TicTacToe/commit/7c242816c82c8edffd13626b6ad2c989a8f53299) |
+| Able to select row number 0, which does not exist | Change if statement that checks if row input number is smaller than 0 or higher than 5 to check if number is smaller than 1 or higher than 5 - [link to commit](https://github.com/vkleer/CI_PP3_5x5_TicTacToe/commit/69cfd85b8d21f3d231a091a9ec199fdaad73f731) |
 
 ## Deployment
 
