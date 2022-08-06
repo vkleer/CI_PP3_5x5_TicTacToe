@@ -551,9 +551,20 @@ This application has been deployed using Heroku with the following steps:
 14. Wait for the app to build and be deployed. Once the app is ready, a message will be displayed saying 'App was successfully deployed' along with a button which takes you to your newly deployed app
 
 ## Credits
-Images that are not referenced below are created or owned by the developer.
+
+### Code
+- The [git template IDE](https://github.com/Code-Institute-Org/python-essentials-template) from Code Institute
+- The connection to my Google Sheets file was implemented using the 'Love Sandwiches Walkthrough Project' by Code institute
+- Not exactly code, but the game logo in ASCII characters was created using the [Text to ASCII Art Generator](https://patorjk.com/software/taag/) by [Patrick Gillespie](https://patorjk.com/)
+- The clear_screen function was implemented using a solution on [Stackoverflow](https://stackoverflow.com/questions/2084508/clear-terminal-in-python) solution by user [Vasiliy Rusin](https://stackoverflow.com/users/5004246/vasiliy-rusin). It's not complicated, but I liked how simple the solution was
+- The Python Reference on the [ord() function](https://www.w3schools.com/python/ref_func_ord.asp) by [W3Schools](https://www.w3schools.com/) helped me understand how to convert column letters into integers
+- To convert the integers from the ord() function into integers from 0 to 4, [this ASCII table](https://theasciicode.com.ar/) helped me to calculate the difference
+- I learned how to rotate a list of lists by 90 degrees by following a solution on [Stackoverflow](https://stackoverflow.com/questions/34347043/how-can-i-rotate-this-list-of-lists-with-python/34347121#34347121) by user [Padraic Cunningham](https://stackoverflow.com/users/2141635/padraic-cunningham), which saved me a couple of lines of code in my check_for_win method in my Grid class, found in my run.py file
+- I learned how to stop Python from running the main function after importing a module using a solution on [Stackoverflow](https://stackoverflow.com/questions/6523791/why-is-python-running-my-module-when-i-import-it-and-how-do-i-stop-it) by anonymous user user166390
+- The [unittest](https://docs.python.org/3/library/unittest.html) and [unittest.mock](https://docs.python.org/3/library/unittest.mock.htm) library documentation from the [official Python documentation](https://docs.python.org/) helped me understand how to use the libraries for my automated testing
+
 
 ## Acknowledgements
 I would like to thank:
 - My mentor Mo Shami for providing me with advice and guidance for this project
-- My partner Lauren Baker for helping me with testing and finding multiple bugs
+- My partner Lauren Baker for helping me with testing and finding multiple bugs in the program
