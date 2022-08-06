@@ -504,7 +504,7 @@ The validate_player_username and validate_player_email functions inside my playe
 If the test input is supposed to be valid, **assertTrue** is used, returning **True** in the statement - if the input was supposed to be invalid, **assertEqual** was used, returning **None** in the statement
 
 <details><summary>Screenshot of validate_player_username and validate_player_email unit testing code</summary>
-    <img src="docs/testing/unit-test-input-validation-functions.JPG">
+    <img src="docs/testing/unit-testing/unit-test-input-validation-functions.JPG">
 </details>
 
 #### Testing the log_in and register_players functions
@@ -514,10 +514,10 @@ A patch decorator is used to access the built-in input function. The unit test i
 Both functions use the same technique. 
 
 <details><summary>Screenshot of log_in and register_players unit testing code</summary>
-    <img src="docs/testing/unit-test-input-validation-functions.JPG">
+    <img src="docs/testing/unit-testing/unit-test-input-validation-functions.JPG">
 </details>
 <details><summary>GIF of the unit tests being run</summary>
-    <img src="docs/testing/unit-testing.gif">
+    <img src="docs/testing/unit-testing/unit-testing.gif">
 </details>
 
 Since both functions don't return a value on completion, **assertEqual** is used, returning **None** in the statement.
