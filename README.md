@@ -164,12 +164,17 @@ A flowchart has been created to display the structure and logic of the program.
 ## Technologies Used
 
 ### Languages
-- Python
+- [**Python**](https://www.python.org/)
 
 ### Tools
-- Gitpod
-- Github
-- Git
+- [**Git**](https://git-scm.com/) was used for version control
+- [**GitHub**](https://github.com/) was used as a remote repository to store the all project files
+- [**Gitpod**](https://gitpod.io/) was used as the IDE to write the project code
+- [**Google Cloud**](https://console.cloud.google.com/) was used to manage access to the Google Sheets and Google Drive API's using a service account key
+- [**Google Sheets**](https://www.google.com/sheets/about/) was used to store the players' account details
+- [**Heroku**](https://dashboard.heroku.com/) was used to deploy the project
+- [**PEP8**](http://pep8online.com/) was used to validate my Python code
+- [**LucidChart**](https://www.lucidchart.com/pages/) was used to create the flowchart
 
 ### Libraries
 
