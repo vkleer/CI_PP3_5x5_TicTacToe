@@ -323,10 +323,10 @@ The Python code has been validated using [Pep8 Validation Service](http://pep8on
     <img src="docs/features/validation/run-pep8-validation.JPG">
 </details>
 <details><summary>Screenshot of player_validation.py PEP8 Validation</summary>
-    <img src="docs/features/validation/player-validation-pep8-validation.JPG">
+    <img src="docs/validation/player-validation-pep8-validation.JPG">
 </details>
 <details><summary>Screenshot of test_player_validation.py PEP8 Validation</summary>
-    <img src="docs/features/validation/test-player-validation-pep8-validation.JPG">
+    <img src="docs/validation/test-player-validation-pep8-validation.JPG">
 </details>
 
 ### Manual Testing - User Stories
@@ -340,7 +340,7 @@ The validate_player_username and validate_player_email functions inside my playe
 If the test input is supposed to be valid, **assertTrue** is used, returning **True** in the statement - if the input was supposed to be invalid, **assertEqual** was used, returning **None** in the statement
 
 <details><summary>Screenshot of validate_player_username and validate_player_email unit testing code</summary>
-    <img src="docs/testing/unit-test-input-validation-functions">
+    <img src="docs/testing/unit-test-input-validation-functions.JPG">
 </details>
 
 #### Testing the log_in and register_players functions
@@ -350,7 +350,7 @@ A patch decorator is used to access the built-in input function. The unit test i
 Both functions use the same technique. 
 
 <details><summary>Screenshot of log_in and register_players unit testing code</summary>
-    <img src="docs/testing/unit-test-input-validation-functions">
+    <img src="docs/testing/unit-test-input-validation-functions.JPG">
 </details>
 <details><summary>GIF of the unit tests being run</summary>
     <img src="docs/testing/unit-testing.gif">
