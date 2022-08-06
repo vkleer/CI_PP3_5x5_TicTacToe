@@ -13,17 +13,40 @@
 2. [User Experience](#user-experience)
     1. [Target Audience](#target-audience)
     2. [User Requirements and Expectations](#user-requirements-and-expectations)
-    3. [User Stories](#user-stories)
     4. [User Manual](#user-manual)
-3. [Technical Design](#technical-design)
-4. [Technologies Used](#technologies-used)
+3. [User Stories](#user-stories)
+    1. [User](#user)
+    2. [Website owner](#website-owner)
+4. [Technical Design](#technical-design)
+    1. [Flowchart](#flowchart)
+5. [Technologies Used](#technologies-used)
     1. [Languages](#languages)
     2. [Tools](#tools)
-5. [Features](#features)
-6. [Testing](#validation)
+    3. [Libraries](#libraries)
+        1. [Built-in Python Libraries](#built-in-python-libraries)
+        2. [Third Party Libraries](#third-party-libraries)
+6. [Features](#features)
+    1. [Game logo](#game-logo)
+    2. [Log in menu](#log-in-menu-1)
+    3. [Log in](#log-in-1)
+    4. [Create new account](#create-new-account-1)
+    5. [Main menu](#main-menu-1)
+    6. [Game instructions](#game-instructions-1)
+    7. [View win count](#view-win-count-1)
+    8. [Game](#game-1)
+    9. [Play again menu](#play-again-menu-1)
+7. [Testing](#validation)
+    1. [Python Validation](#python-validation)
+    2. [Manual Testing - User Stories](#manual-testing---user-stories)
+    3. [Automated Testing](#automated-testing)
+        1. [Testing the validate_player_username and validate_player_email functions](#testing-the-validateplayerusername-and-validateplayeremail-functions)
+        2. [Testing the log_in and register_players functions](#testing-the-login-and-registerplayers-functions)
 8. [Bugs](#Bugs)
 9. [Deployment](#deployment)
+    1. [GitHub](#github)
+    2. [Heroku](#heroku)
 10. [Credits](#credits)
+    1. [Code](#code)
 11. [Acknowledgements](#acknowledgements)
 
 ## Project Goals
@@ -104,7 +127,7 @@ Operation: Input any key and press the enter key.
 If option 3 is selected from the 'Main' menu, the win count of both players will be displayed. The players will then return to the 'Main' menu.
 Operation: Input any key and press the enter key.
 
-#### The game
+#### Game
 If option 1 is selected from the 'Main' or 'Play again' menu, the players will be taken to the game. As mentioned before, a random player will be picked to have the first turn at the start of each game. 
 
 The player will be asked to select a row number, ranging from 1 to 5. Once a row number is selected, the player will be asked to select a column letter, ranging from A to E. The selected position will then be validated to see if the position is empty or if another mark is already in place. If there is another mark in place, the player will be informed about this and prompted to select a new row number and column letter. If the position is empty, the mark will be placed and the players' turn ends. Now the other player will be able to place a mark on the grid.
@@ -146,7 +169,7 @@ If option 3 is selected on the 'log in' menu or option 4 on the 'Play again' men
 7. As a user, I want to receive feedback during and after the game
 8. As a user, I want to be informed if I provide wrong input in the game
 
-### Site owner
+### Website owner
 9. As the website owner, I want the game to be fair and have a random player get the first turn on each game
 10. As the website owner, I want to provide feedback to users when they provide invalid input
 11. As the website owner, I want usernames and email addresses to be saved to a Google Sheets file
@@ -178,14 +201,14 @@ A flowchart has been created to display the structure and logic of the program.
 
 ### Libraries
 
-## Built-in Python Libraries
+#### Built-in Python Libraries
 - **os** is used to clear the terminal 
 - **sys** is used to to exit the program
 - **random** is used to change from player 1 to player 2 and vice versa
 - [**unittest**](https://docs.python.org/3/library/unittest.html) is used to create automated tests for player_validation.py
 - [**patch**](https://docs.python.org/3/library/unittest.mock.html#unittest.mock.patch) from [**unittest.mock**](https://docs.python.org/3/library/unittest.mock.html) is used to to test my register_players and log_in functions from player_validation.py, which both require multiple inputs in a row to complete the test
 
-## Third Party Libraries
+#### Third Party Libraries
 - [**gpread**](https://docs.gspread.org/en/latest/) is used to get, set and delete data in my Google Sheets file. The Google Sheets file contains the usernames, email addresses and win counts for each player that has registered.
 - [**Credentials**](https://google-auth.readthedocs.io/en/master/reference/google.oauth2.credentials.html?highlight=credentials) from [**google.oauth2.service_account**](https://google-auth.readthedocs.io/en/master/) is used for the authentification that's required to connect to my Google service account to the Google Drive and Google Sheets API. A service account key has been created in JSON with the name creds.json. The connection is set up in player_validation.py. To keep the creds.json file safe, it is put in the .gitignore file to prevent it from being pushed to GitHub. As the project is deployed on Heroku, the contents of the creds.json file have been stored in a Config Var inside the Heroku application settings to make the connection work.
 - [**email_validator**](https://pypi.org/project/email-validator/) is used to validate the players' email address when entered on registration and log in. It must follow the format of 'name@example.com'.
