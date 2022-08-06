@@ -508,7 +508,6 @@ The log_in function asks for two email addresses to log in the players. After th
 ## Deployment
 
 ### GitHub
-
 This website was deployed using Github Pages with the following steps:
 
 1. Go to your Github Repository
@@ -532,6 +531,24 @@ If you want to clone this repository, follow these steps:
 5. In you IDE, open Git Bash
 6. Navigate to the working directory where you want to clone this directory
 7. Paste in the clone command you copied and press the 'enter' key to create the clone
+
+### Heroku
+This application has been deployed using Heroku with the following steps:
+
+1. Login to [Heroku](https://id.heroku.com/login)
+1. Go to your Heroku dashboard
+3. In the top-right corner, click on the 'New' button, followed by the 'Create a new app' button
+4. Enter an app name (it has to be unique) and choose your region under the 'Choose a region' dropdown menu.
+5. Click on the 'Create app' button
+6. On the next page, click on the 'Settings' tab 
+7. Under 'Config Vars', click on 'Reveal Config Vars' to add a new Config var - this is where you can store sensitive data, like your Google service account key
+8. Under 'Buildpacks' click on the 'Add buildpack' button to install additional dependencies. For this project the 'python' and 'nodejs' buildpacks were added, in that specific order
+9. Click on the 'Deploy' tab
+10. Under 'Deployment method', click on 'Github'. You can then search for your repository under 'Search for a repository to connect to'
+11. Click on the 'Connect' button to connect your repository
+12. On the next page, under 'Choose a branch to deploy' you can choose the branch you want to deploy your app from
+13. Either click on the 'Enable Automatic Deploys' button under 'Automatic deploys' to have the app deploy automatically on each push you make to the branch, or click on the 'Deploy Branch' button under 'Manual deploy'
+14. Wait for the app to build and be deployed. Once the app is ready, a message will be displayed saying 'App was successfully deployed' along with a button which takes you to your newly deployed app
 
 ## Credits
 Images that are not referenced below are created or owned by the developer.
