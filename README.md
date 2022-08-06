@@ -349,7 +349,7 @@ The Python code has been validated using [Pep8 Validation Service](http://pep8on
 | Game instructions | Go to 'Game instructions' using the main menu | See the game instructions | Works as expected |
 
 <details><summary>Supporting Screenshots - User Story 1</summary>
-    <img src="docs/user-story-testing/user-story-01.png">
+    <img src="docs/testing/user-story-testing/user-story-01.png">
 </details>
 
 2. As a user, I want to be able to create an account
@@ -359,7 +359,7 @@ The Python code has been validated using [Pep8 Validation Service](http://pep8on
 | Create new account | Go to 'Create new account' using the log in menu | Be able to create an account | Works as expected |
 
 <details><summary>Supporting Screenshots - User Story 2</summary>
-    <img src="docs/user-story-testing/user-story-01.png">
+    <img src="docs/testing/user-story-testing/user-story-02.png">
 </details>
 
 3. As a user, I want to be able to log in with my account
@@ -369,7 +369,7 @@ The Python code has been validated using [Pep8 Validation Service](http://pep8on
 | Log in | Go to 'Log in' using the log in menu  | Be able to log in | Works as expected |
 
 <details><summary>Supporting Screenshots - User Story 3</summary>
-    <img src="docs/user-story-testing/user-story-01.png">
+    <img src="docs/testing/user-story-testing/user-story-03.png">
 </details>
 
 4. As a user, I want to be able to log out when I'm done
@@ -380,7 +380,7 @@ The Python code has been validated using [Pep8 Validation Service](http://pep8on
 | Play again menu | Select option 3 on the play again menu | Be logged out of our accounts and brought back to the log in menu | Works as expected |
 
 <details><summary>Supporting Screenshots - User Story 4</summary>
-    <img src="docs/user-story-testing/user-story-01.png">
+    <img src="docs/testing/user-story-testing/user-story-04.png">
 </details>
 
 5. As a user, I want to be able to quit the game
@@ -391,7 +391,7 @@ The Python code has been validated using [Pep8 Validation Service](http://pep8on
 | Play again menu | Select option 4 on the play again menu | Exit the program | Works as expected |
 
 <details><summary>Supporting Screenshots - User Story 5</summary>
-    <img src="docs/user-story-testing/user-story-01.png">
+    <img src="docs/testing/user-story-testing/user-story-05.png">
 </details>
 
 6. As a user, I want to know how many games I've won
@@ -401,7 +401,7 @@ The Python code has been validated using [Pep8 Validation Service](http://pep8on
 | View win count | Select option 3 on the log in menu | See each players' win count | Works as expected |
 
 <details><summary>Supporting Screenshots - User Story 6</summary>
-    <img src="docs/user-story-testing/user-story-01.png">
+    <img src="docs/testing/user-story-testing/user-story-06.png">
 </details>
 
 7. As a user, I want to receive feedback during and after the game
@@ -411,7 +411,7 @@ The Python code has been validated using [Pep8 Validation Service](http://pep8on
 | Game | Select option 1 on the main menu to start the game, then play until the a player wins | See each player name during and after the game | Works as expected |
 
 <details><summary>Supporting Screenshots - User Story 7</summary>
-    <img src="docs/user-story-testing/user-story-01.png">
+    <img src="docs/testing/user-story-testing/user-story-07.png">
 </details>
 
 8. As a user, I want to be informed if I provide wrong input in the game
@@ -420,7 +420,9 @@ The Python code has been validated using [Pep8 Validation Service](http://pep8on
 |-------------|------------|---------------------|-------------------|
 | Anywhere in the program | Enter invalid input | Receive feedback on the invalid input | Works as expected |
 
-#link to Features section and check out all validation screenshots
+<details><summary>Supporting Screenshots - User Story 8</summary>
+    <img src="docs/testing/user-story-testing/user-story-08.png">
+</details>
 
 9. As the website owner, I want the game to be fair and have a random player get the first turn on each game
 
@@ -429,7 +431,7 @@ The Python code has been validated using [Pep8 Validation Service](http://pep8on
 | Game | Action  | Expected result | Works as expected |
 
 <details><summary>Supporting Screenshots - User Story 9</summary>
-    <img src="docs/user-story-testing/user-story-01.png">
+    <img src="docs/testing/user-story-testing/user-story-09.png">
 </details>
 
 10. As the website owner, I want to provide feedback to users when they provide invalid input
@@ -452,7 +454,7 @@ The Python code has been validated using [Pep8 Validation Service](http://pep8on
 | Create new account | Action  | Expected result | Works as expected |
 
 <details><summary>Supporting Screenshots - User Story 11</summary>
-    <img src="docs/user-story-testing/user-story-01.png">
+    <img src="docs/testing/user-story-testing/user-story-11.png">
 </details>
 
 12. As the website owner, I want users to be able to decide if they want to create one or two accounts during the registration process
@@ -462,7 +464,7 @@ The Python code has been validated using [Pep8 Validation Service](http://pep8on
 | Create new account | Go to 'Create new account' using the log in menu and create one account to see the options | Be able to create a second account or go back to log in menu | Works as expected |
 
 <details><summary>Supporting Screenshots - User Story 12</summary>
-    <img src="docs/user-story-testing/user-story-01.png">
+    <img src="docs/testing/user-story-testing/user-story-12.png">
 </details>
 
 ### Automated Testing
