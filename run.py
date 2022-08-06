@@ -284,7 +284,6 @@ class Grid():
                 else:
                     col_set = True
 
-        print(col)
         if self.grid_marks[row][col] != ' ':
             print('A mark is already in place, please select a different'
                   ' location.\n')
