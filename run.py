@@ -250,7 +250,7 @@ class Grid():
                 print(f'You entered {row}, which is not a number.\n')
                 row = input(row_text)
             else:
-                if 0 < int(row) > 5:
+                if int(row) < 1 or int(row) > 5:
                     print(f'You entered {row}, which is not a valid row.\n')
                     row_set = False
                     row = input(row_text)
