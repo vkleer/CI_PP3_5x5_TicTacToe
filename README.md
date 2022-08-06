@@ -1,7 +1,7 @@
 # 5x5 Tic-Tac-Toe
 (Developer: Vilayat Kleer)
 
-![mockup-image.jpg]()
+![deployed-screenshot.JPG](docs/deployed-screenshot.JPG)
 
 [View the live website](https://ci-pp3-5x5-tictactoe.herokuapp.com/)
 
@@ -329,7 +329,7 @@ The Python code has been validated using [Pep8 Validation Service](http://pep8on
     <img src="docs/features/validation/test-player-validation-pep8-validation.JPG">
 </details>
 
-### Manual Testing
+### Manual Testing - User Stories
 
 ### Automated Testing
 To challenge myself, I decided to incorporate automated testing into my project. I used the built-in unittest and unittest.mock libraries to achieve this. I tested multiple seperate functions.
