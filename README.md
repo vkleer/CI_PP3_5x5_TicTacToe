@@ -161,8 +161,6 @@ A flowchart has been created to display the structure and logic of the program.
     <img src="docs/5x5-tictactoe-flowchart.jpeg">
 </details>
 
-### Data Models
-
 ## Technologies Used
 
 ### Languages
@@ -188,7 +186,7 @@ A flowchart has been created to display the structure and logic of the program.
 - [**email_validator**](https://pypi.org/project/email-validator/) is used to validate the players' email address when entered on registration and log in. It must follow the format of 'name@example.com'.
 
 ## Features
-The website has a total of 8 main features:
+The website has a total of 9 main features:
 
 ### Game logo
 - Logo created from ASCII characters 
@@ -314,6 +312,19 @@ The website has a total of 8 main features:
     <img src="docs/features/game-validation-2.JPG">
 </details>
 
+### Play again menu
+- Presents users with the option to play again, to to main menu, log out or quit the game.
+- Validates the input, providing feedback if input was invalid. User will be prompted to try again if a non-existing option was selected.
+- Covers user story **4**, **5** and **10**
+
+<details><summary>Screenshot of play again menu</summary>
+    <img src="docs/features/main-menu.JPG">
+</details>
+
+<details><summary>Screenshot of play menu validation</summary>
+    <img src="docs/features/main-menu-validation.JPG">
+</details>
+
 ## Testing
 
 ### Python Validation
@@ -330,6 +341,129 @@ The Python code has been validated using [Pep8 Validation Service](http://pep8on
 </details>
 
 ### Manual Testing - User Stories
+
+1. As a user, I want to be able to read the game instructions
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Game instructions | Go to 'Game instructions' using the main menu | See the game instructions | Works as expected |
+
+<details><summary>Supporting Screenshots - User Story 1</summary>
+    <img src="docs/user-story-testing/user-story-01.png">
+</details>
+
+2. As a user, I want to be able to create an account
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Create new account | Go to 'Create new account' using the log in menu | Be able to create an account | Works as expected |
+
+<details><summary>Supporting Screenshots - User Story 2</summary>
+    <img src="docs/user-story-testing/user-story-01.png">
+</details>
+
+3. As a user, I want to be able to log in with my account
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Log in | Go to 'Log in' using the log in menu  | Be able to log in | Works as expected |
+
+<details><summary>Supporting Screenshots - User Story 3</summary>
+    <img src="docs/user-story-testing/user-story-01.png">
+</details>
+
+4. As a user, I want to be able to log out when I'm done
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Main menu | Select option 4 on the main menu | Be logged out of our accounts and brought back to the log in menu | Works as expected |
+| Play again menu | Select option 3 on the play again menu | Be logged out of our accounts and brought back to the log in menu | Works as expected |
+
+<details><summary>Supporting Screenshots - User Story 4</summary>
+    <img src="docs/user-story-testing/user-story-01.png">
+</details>
+
+5. As a user, I want to be able to quit the game
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Log in menu | Select option 3 on the log in menu | Exit the program | Works as expected |
+| Play again menu | Select option 4 on the play again menu | Exit the program | Works as expected |
+
+<details><summary>Supporting Screenshots - User Story 5</summary>
+    <img src="docs/user-story-testing/user-story-01.png">
+</details>
+
+6. As a user, I want to know how many games I've won
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| View win count | Select option 3 on the log in menu | See each players' win count | Works as expected |
+
+<details><summary>Supporting Screenshots - User Story 6</summary>
+    <img src="docs/user-story-testing/user-story-01.png">
+</details>
+
+7. As a user, I want to receive feedback during and after the game
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Game | Select option 1 on the main menu to start the game, then play until the a player wins | See each player name during and after the game | Works as expected |
+
+<details><summary>Supporting Screenshots - User Story 7</summary>
+    <img src="docs/user-story-testing/user-story-01.png">
+</details>
+
+8. As a user, I want to be informed if I provide wrong input in the game
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Anywhere in the program | Enter invalid input | Receive feedback on the invalid input | Works as expected |
+
+#link to Features section and check out all validation screenshots
+
+9. As the website owner, I want the game to be fair and have a random player get the first turn on each game
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Game | Action  | Expected result | Works as expected |
+
+<details><summary>Supporting Screenshots - User Story 9</summary>
+    <img src="docs/user-story-testing/user-story-01.png">
+</details>
+
+10. As the website owner, I want to provide feedback to users when they provide invalid input
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Log in menu | Enter invalid input | Receive feedback on the invalid input | Works as expected |
+| Log in | Enter invalid input | Receive feedback on the invalid input | Works as expected |
+| Create new account | Enter invalid input | Receive feedback on the invalid input | Works as expected |
+| Main menu | Enter invalid input | Receive feedback on the invalid input | Works as expected |
+| Game | Enter invalid input | Receive feedback on the invalid input | Works as expected |
+| Play again menu | Enter invalid input | Receive feedback on the invalid input | Works as expected |
+
+[Click here to go to the features section where you can find validation screenshots. Feedback is shown to users about their invalid input](#features)
+
+11. As the website owner, I want usernames and email addresses to be saved to a Google Sheets file
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Create new account | Action  | Expected result | Works as expected |
+
+<details><summary>Supporting Screenshots - User Story 11</summary>
+    <img src="docs/user-story-testing/user-story-01.png">
+</details>
+
+12. As the website owner, I want users to be able to decide if they want to create one or two accounts during the registration process
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Create new account | Go to 'Create new account' using the log in menu and create one account to see the options | Be able to create a second account or go back to log in menu | Works as expected |
+
+<details><summary>Supporting Screenshots - User Story 12</summary>
+    <img src="docs/user-story-testing/user-story-01.png">
+</details>
 
 ### Automated Testing
 To challenge myself, I decided to incorporate automated testing into my project. I used the built-in unittest and unittest.mock libraries to achieve this. I tested multiple seperate functions.
